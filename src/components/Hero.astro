@@ -1,0 +1,83 @@
+---
+
+---
+
+<section id="home" class="relative min-h-screen flex items-center">
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/src/assets/placeholder.svg"
+      alt="Delicious food background"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  {/* Content */}
+  <div class="container mx-auto px-4 py-20 relative z-10">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        Tortas <span class="text-orange-400">Goyo</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-200">
+        Las mejores tortas, hamburguesas y bebidas de la ciudad
+      </p>
+      <p class="text-lg mb-12 text-gray-300 max-w-2xl mx-auto">
+        Desde 1995, preparamos cada platillo con ingredientes frescos y el sabor
+        auténtico que nos ha convertido en el favorito de las familias
+        mexicanas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <button
+          class="bg-orange-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 transform hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          Ver Menú Completo
+        </button>
+        <button
+          class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300"
+        >
+          Hacer Pedido
+        </button>
+      </div>
+
+      {/* Features */}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div
+          class="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-lg"
+        >
+          <!-- <Star class="w-12 h-12 text-orange-400 mb-4" /> -->
+          <h3 class="text-xl font-semibold mb-2">Calidad Premium</h3>
+          <p class="text-gray-300">
+            Ingredientes frescos y de la mejor calidad
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-lg"
+        >
+          <!-- <Clock class="w-12 h-12 text-orange-400 mb-4" /> -->
+          <h3 class="text-xl font-semibold mb-2">Servicio Rápido</h3>
+          <p class="text-gray-300">
+            Preparación express sin comprometer el sabor
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-lg"
+        >
+          <!-- <Truck class="w-12 h-12 text-orange-400 mb-4" /> -->
+          <h3 class="text-xl font-semibold mb-2">Delivery Gratis</h3>
+          <p class="text-gray-300">
+            Entrega gratuita en pedidos mayores a $300
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Scroll Indicator */}
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+    <div
+      class="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+    >
+      <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+    </div>
+  </div>
+</section>
