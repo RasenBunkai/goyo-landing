@@ -1,92 +1,107 @@
 ---
-import React from 'react';
-import { Users, Award, Heart, Clock } from 'lucide-react';
+import Users from "../../public/svg/Users.astro";
+import Trophy from "../../public/svg/Trophy.astro";
+import Heart from "../../public/svg/Heart.astro";
+import Clock from "../../public/svg/Clock.astro";
 
-const About = () => {
-  const stats = [
-    { icon: Users, number: '25K+', label: 'Clientes Satisfechos' },
-    { icon: Award, number: '30+', label: 'Años de Experiencia' },
-    { icon: Heart, number: '100%', label: 'Ingredientes Frescos' },
-    { icon: Clock, number: '24/7', label: 'Servicio Disponible' },
-  ];
+const stats = [
+  { icon: Users, number: "25K+", label: "Clientes Satisfechos" },
+  { icon: Trophy, number: "30+", label: "Años de Experiencia" },
+  { icon: Heart, number: "100%", label: "Ingredientes Frescos" },
+  { icon: Clock, number: "24/7", label: "Servicio Disponible" },
+];
 ---
-    <section id="about" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <div>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-              Nuestra <span class="text-orange-500">Historia</span>
-            </h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              Desde 1995, Tortas Goyo ha sido el corazón culinario de nuestra comunidad. 
-              Todo comenzó con Don Gregorio, quien tenía una pasión por crear las mejores 
-              tortas de la ciudad usando recetas familiares transmitidas de generación en generación.
-            </p>
-            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-              Hoy, seguimos manteniendo esa tradición de calidad y sabor auténtico, 
-              expandiendo nuestro menú para incluir hamburguesas gourmet y bebidas frescas, 
-              pero siempre con el mismo compromiso: ofrecer la mejor experiencia gastronómica.
-            </p>
-            
-            {/* Features */}
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <span class="text-orange-500 font-bold">✓</span>
-                </div>
-                <span class="text-gray-700">Ingredientes 100% frescos</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <span class="text-orange-500 font-bold">✓</span>
-                </div>
-                <span class="text-gray-700">Recetas tradicionales</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <span class="text-orange-500 font-bold">✓</span>
-                </div>
-                <span class="text-gray-700">Servicio al cliente excepcional</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <span class="text-orange-500 font-bold">✓</span>
-                </div>
-                <span class="text-gray-700">Precios justos y accesibles</span>
-              </div>
-            </div>
 
-            <button class="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-              Conoce Nuestras Sucursales
-            </button>
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="px-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          Nuestra <span class="text-orange-500">Historia</span>
+        </h2>
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          Desde 1995, Tortas Goyo ha sido el corazón culinario de nuestra
+          comunidad. Todo comenzó con Don Gregorio, quien tenía una pasión por
+          crear las mejores tortas de la ciudad usando recetas familiares
+          transmitidas de generación en generación.
+        </p>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Hoy, seguimos manteniendo esa tradición de calidad y sabor auténtico,
+          expandiendo nuestro menú para incluir hamburguesas gourmet y bebidas
+          frescas, pero siempre con el mismo compromiso: ofrecer la mejor
+          experiencia gastronómica.
+        </p>
+
+        {/* Features */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+            >
+              <span class="text-orange-500 font-bold">✓</span>
+            </div>
+            <span class="text-gray-700">Ingredientes 100% frescos</span>
           </div>
-
-          {/* Image */}
-          <div class="relative">
-            <img
-              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
-              alt="Interior del restaurante"
-              class="rounded-2xl shadow-2xl"
-            />
-            <div class="absolute -bottom-8 -left-8 bg-orange-500 text-white p-6 rounded-2xl shadow-lg">
-              <p class="text-3xl font-bold">30+</p>
-              <p class="text-sm">Años sirviendo</p>
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+            >
+              <span class="text-orange-500 font-bold">✓</span>
             </div>
+            <span class="text-gray-700">Recetas tradicionales</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+            >
+              <span class="text-orange-500 font-bold">✓</span>
+            </div>
+            <span class="text-gray-700">Servicio al cliente excepcional</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
+            >
+              <span class="text-orange-500 font-bold">✓</span>
+            </div>
+            <span class="text-gray-700">Precios justos y accesibles</span>
           </div>
         </div>
 
-        {/* Stats */}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
-          {stats.map((stat, index) => (
-            <div class="text-center group">
-              <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500 transition-colors duration-300">
-                <stat.icon class="w-8 h-8 text-orange-500 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <p class="text-3xl font-bold text-gray-800 mb-2">{stat.number}</p>
-              <p class="text-gray-600">{stat.label}</p>
-            </div>
-          ))}
+        <a
+          href="#"
+          class="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+        >
+          Conoce Nuestras Sucursales
+        </a>
+      </div>
+
+      <div class="relative">
+        <img
+          src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
+          alt="Interior del restaurante"
+          class="rounded-2xl shadow-2xl"
+        />
+        <div
+          class="absolute -bottom-8 -left-8 bg-orange-500 text-white p-6 rounded-2xl shadow-lg"
+        >
+          <p class="text-3xl font-bold">30+</p>
+          <p class="text-sm">Años sirviendo</p>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+      {
+        stats.map(({ icon: Icon, number, label }) => (
+          <div class="text-center group">
+            <div class="size-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500 transition-colors duration-300">
+              <Icon className="size-7 text-orange-500 group-hover:text-white transition-colors duration-300" />
+            </div>
+            <p class="text-3xl font-bold text-gray-800 mb-2">{number}</p>
+            <p class="text-gray-600">{label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

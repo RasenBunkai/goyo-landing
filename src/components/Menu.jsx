@@ -91,7 +91,7 @@ export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("tortas");
 
   return (
-    <section id="menu" className="py-20 px-7 bg-gray-50">
+    <section id="menu" className="py-20 px-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -124,7 +124,7 @@ export default function Menu() {
       </div>
 
       {/* Productos filtrados */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {menuItems[selectedCategory].map((item, index) => (
           <div
             key={index}
