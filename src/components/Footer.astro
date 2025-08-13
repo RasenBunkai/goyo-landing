@@ -1,0 +1,120 @@
+---
+import Phone from '../../public/svg/Phone.astro';
+import MapPin from '../../public/svg/MapPin.astro';
+import Mail from '../../public/svg/Mail.astro';
+import Clock from '../../public/svg/Clock.astro';
+import Whatsapp from '../../public/svg/Whatsapp.astro';
+
+
+  const quickLinks = [
+    { name: 'Inicio', href: '#home' },
+    { name: 'Menú', href: '#menu' },
+    { name: 'Nosotros', href: '#about' },
+    { name: 'Contacto', href: '#contact' },
+  ];
+
+  const menuCategories = [
+    { name: 'Tortas Especiales', href: '#menu' },
+    { name: 'Hamburguesas', href: '#menu' },
+    { name: 'Bebidas Frescas', href: '#menu' },
+    { name: 'Combos Familiares', href: '#menu' },
+  ];
+---
+    <footer class="bg-gray-900 text-white">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold text-xl">TG</span>
+              </div>
+              <span class="text-2xl font-bold">Tortas Goyo</span>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              Desde 1995, sirviendo las mejores tortas, hamburguesas y bebidas de la ciudad 
+              con ingredientes frescos y sabor auténtico.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300">
+                <Whatsapp class="size-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 class="text-xl font-bold mb-6">Enlaces Rápidos</h3>
+            <ul class="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-orange-500 transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Menu Categories */}
+          <div>
+            <h3 class="text-xl font-bold mb-6">Nuestro Menú</h3>
+            <ul class="space-y-3">
+              {menuCategories.map((category, index) => (
+                <li>
+                  <a
+                    href={category.href}
+                    class="text-gray-400 hover:text-orange-500 transition-colors duration-300"
+                  >
+                    {category.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 class="text-xl font-bold mb-6">Información de Contacto</h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <Phone className="size-5 text-orange-500" />
+                <span class="text-gray-400">(555) 123-4567</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <MapPin className="size-5 text-orange-500" />
+                <span class="text-gray-400">Av. Principal 123, Ciudad</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <Mail className="size-5 text-orange-500" />
+                <span class="text-gray-400">info@tortasgoyo.com</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <Clock className="size-5 text-orange-500" />
+                <span class="text-gray-400">Lun - Dom: 8:00 AM - 11:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div class="border-t border-gray-800 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+              © 2024 Tortas Goyo. Todos los derechos reservados.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300 text-sm">
+                Política de Privacidad
+              </a>
+              <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300 text-sm">
+                Términos de Servicio
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>

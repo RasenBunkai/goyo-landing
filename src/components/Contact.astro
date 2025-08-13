@@ -1,0 +1,121 @@
+---
+import Phone from '../../public/svg/Phone.astro';
+import MapPin from '../../public/svg/MapPin.astro';
+import Clock from '../../public/svg/Clock.astro';
+import Whatsapp from '../../public/svg/Whatsapp.astro';
+
+
+const contactInfo = [
+    {
+      icon: Phone,
+      title: 'Teléfono',
+      details: ['(555) 123-4567', '(555) 987-6543'],
+      color: 'bg-blue-100 text-blue-600',
+    },
+    {
+      icon: MapPin,
+      title: 'Dirección',
+      details: ['Av. Principal 123', 'Colonia Centro, Ciudad'],
+      color: 'bg-red-100 text-red-600',
+    },
+    {
+      icon: Clock,
+      title: 'Horarios',
+      details: ['Lun - Dom: 8:00 AM - 11:00 PM', 'Delivery hasta las 10:30 PM'],
+      color: 'bg-green-100 text-green-600',
+    },
+  ];
+
+---
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <span class="text-orange-500">Contáctanos</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Estamos aquí para servirte. ¡Haz tu pedido o visítanos en cualquier momento!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="px-16">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8">Información de Contacto</h3>
+            
+            <div class="space-y-6 mb-8">
+              {contactInfo.map((info) => (
+                <div class="flex items-start space-x-4">
+                  <div class={`size-12 rounded-full flex items-center justify-center ${info.color}`}>
+                    <info.icon className="size-6" />
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">{info.title}</h4>
+                    {info.details.map((detail) => (
+                      <p class="text-gray-600">{detail}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Order */}
+            <div class="mt-8 p-6 bg-orange-50 rounded-2xl">
+              <h4 class="font-bold text-gray-800 mb-4">Pedidos Rápidos</h4>
+              <p class="text-gray-600 mb-4">
+                Llámanos directamente o envíanos un WhatsApp para pedidos express
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#" class="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+                  <Phone className="size-5" />
+                  <span>Llamar Ahora</span>
+                </a>
+                <a href="#" class="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+                  <Whatsapp class="size-5" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Map/Location */}
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-8">Nuestra Ubicación</h3>
+            
+            {/* Mock Map */}
+            <div class="bg-gray-300 rounded-2xl h-64 mb-6 flex items-center justify-center">
+              <div class="text-center">
+                <MapPin className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+                <p class="text-gray-600">Mapa Interactivo</p>
+                <p class="text-sm text-gray-500">Av. Principal 123, Colonia Centro</p>
+              </div>
+            </div>
+
+            {/* Delivery Areas */}
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <h4 class="font-bold text-gray-800 mb-4">Zonas de Entrega</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <p class="font-semibold text-gray-800">Centro</p>
+                  <p class="text-sm text-gray-600">20-30 min</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <p class="font-semibold text-gray-800">Norte</p>
+                  <p class="text-sm text-gray-600">30-40 min</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <p class="font-semibold text-gray-800">Sur</p>
+                  <p class="text-sm text-gray-600">25-35 min</p>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <p class="font-semibold text-gray-800">Oriente</p>
+                  <p class="text-sm text-gray-600">35-45 min</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500 mt-4 text-center">
+                * Entrega gratuita en pedidos mayores a $300
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
