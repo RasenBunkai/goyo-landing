@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import FullMenu from "../components/FullMenu";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Navbar />
+  <FullMenu client:load />
+  <Footer />
+</Layout>

@@ -161,7 +161,7 @@ export default function Menu() {
       </div>
       <div className="flex justify-center mt-16">
         <a
-          href=""
+          href="/menu"
           className="bg-gray-800 text-white text-center px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300 transform hover:scale-105"
         >
           Ver menú completo

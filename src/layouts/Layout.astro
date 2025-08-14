@@ -1,5 +1,6 @@
 ---
 import "./src/styles/global.css";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import "./src/styles/global.css";
   </head>
   <body>
     <slot />
+    <ClientRouter />
   </body>
 </html>
 
