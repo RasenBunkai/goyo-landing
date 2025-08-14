@@ -134,6 +134,7 @@ export default function Menu() {
               <img
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
                 className="w-full h-48 object-cover"
               />
               {item.popular && (

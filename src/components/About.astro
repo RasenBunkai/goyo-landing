@@ -3,6 +3,7 @@ import Users from "../../public/svg/Users.astro";
 import Trophy from "../../public/svg/Trophy.astro";
 import Heart from "../../public/svg/Heart.astro";
 import Clock from "../../public/svg/Clock.astro";
+import Image from "astro/components/Image.astro";
 
 const stats = [
   { icon: Users, number: "25K+", label: "Clientes Satisfechos" },
@@ -69,7 +70,7 @@ const stats = [
         </div>
 
         <a
-          href="#"
+          href="/sucursales"
           class="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
         >
           Conoce Nuestras Sucursales
@@ -77,9 +78,12 @@ const stats = [
       </div>
 
       <div class="relative">
-        <img
+        <Image
           src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
           alt="Interior del restaurante"
+          width={600}
+          height={800}
+          draggable="false"
           class="rounded-2xl shadow-2xl"
         />
         <div
