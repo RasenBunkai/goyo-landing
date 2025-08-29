@@ -446,22 +446,25 @@ const FullMenu = () => {
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center mb-12 gap-4">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer ${
-                activeCategory === category.id
-                  ? "bg-orange-500 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-orange-100 shadow-md"
-              }`}
-            >
-              <span className="text-xl mr-2">{category.icon}</span>
-              {category.name}
-            </button>
-          ))}
+          {categories.map((category) => {
+            const itemCount =
+              menuData[category.id as keyof typeof menuData].length;
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+                  activeCategory === category.id
+                    ? "bg-orange-500 text-white shadow-lg"
+                    : "bg-white text-gray-700 hover:bg-orange-100 shadow-md"
+                }`}
+              >
+                <span className="text-xl mr-2">{category.icon}</span>{" "}
+                {itemCount} {category.name}
+              </button>
+            );
+          })}
         </div>
-
         {/* Menu Items Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
@@ -499,29 +502,6 @@ const FullMenu = () => {
             </p>
           </div>
         )}
-
-        {/* Category Summary */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            {categories.map((category) => {
-              const itemCount =
-                menuData[category.id as keyof typeof menuData].length;
-              return (
-                <div
-                  key={category.id}
-                  className="group cursor-pointer"
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {category.icon}
-                  </div>
-                  <p className="font-semibold text-gray-800">{category.name}</p>
-                  <p className="text-sm text-gray-500">{itemCount} productos</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
         {/* Call to Action */}
         <div className="text-center mt-12">

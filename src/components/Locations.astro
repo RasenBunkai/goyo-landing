@@ -1,0 +1,213 @@
+---
+import Navbar from "./Navbar.astro";
+import MapPin from "../../public/svg/MapPin.astro";
+import Phone from "../../public/svg/Phone.astro";
+import Clock from "../../public/svg/Clock.astro";
+import Navigation from "../../public/svg/Navigation.astro";
+import Footer from "./Footer.astro";
+
+const locations = [
+  {
+    id: 1,
+    name: "Matriz Tortas Goyo 1",
+    address: "Smza 70 Mza 7 Lote 19 Av. Francisco y Madero",
+    phones: ["998 888 42 97", "998 888 46 69", "998 252 68 54"],
+    hours: "9 AM a 11 PM",
+    isMain: true,
+  },
+  {
+    id: 2,
+    name: "Tortas Goyo 2",
+    address: "Region 101 Mza 96 Lote 17 Avenida 137",
+    phones: ["998 840 04 50", "988 208 70 15"],
+    hours: "9 AM a 11 PM",
+    isMain: false,
+  },
+  {
+    id: 3,
+    name: "Tortas Goyo 3",
+    address: "Reg 510 mza 57 lote 18 Avenida 50",
+    phones: ["998 415 39 62", "998 252 10 59"],
+    hours: "9 AM a 11 PM",
+    isMain: false,
+  },
+  {
+    id: 4,
+    name: "Tortas Goyo 4",
+    address:
+      "Av. 30 Nte. esq. calle 86 Manzana 438 Lote 001 Col. Luis Donaldo Colosio Playa del Carmen",
+    phones: ["984 859 48 59", "984 859 48 60"],
+    hours: "11 AM a 12 PM",
+    isMain: false,
+  },
+  {
+    id: 5,
+    name: "Tortas Goyo 5",
+    address: "Region 76 Mza 44 Lote 31 No 232 Avenida Revolucion x Ruta 7",
+    phones: ["998 880 42 79", "998 843 12 83"],
+    hours: "9 AM a 11 PM",
+    isMain: false,
+  },
+];
+---
+<Navbar/>
+<section id="locations" class="py-20 bg-gray-50 min-h-screen">
+  <div class="container mx-auto px-16">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        Nuestras <span class="text-orange-500">Sucursales</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Encuentra la sucursal más cercana a ti y disfruta de nuestros deliciosos
+        platillos
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+        <div
+          class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <MapPin className="w-8 h-8 text-orange-500" />
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">5</h3>
+        <p class="text-gray-600">Sucursales</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+        <div
+          class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <Phone className="w-8 h-8 text-green-500" />
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">100%</h3>
+        <p class="text-gray-600">Servicio a Domicilio</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+        <div
+          class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <Clock className="w-8 h-8 text-blue-500" />
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">14</h3>
+        <p class="text-gray-600">Horas de Servicio</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {
+        locations.map((location) => (
+          <div
+            class={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${
+              location.isMain ? "ring-2 ring-orange-500" : ""
+            }`}
+          >
+            {location.isMain && (
+              <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-center py-2">
+                <span class="font-semibold">⭐ Sucursal Matriz</span>
+              </div>
+            )}
+
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">
+                  {location.name}
+                </h3>
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                  <span class="text-orange-500 font-bold">{location.id}</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3 mb-6">
+                <MapPin className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold text-gray-800 mb-1">Dirección</p>
+                  <p class="text-gray-600 leading-relaxed">
+                    {location.address}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3 mb-6">
+                <Phone className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold text-gray-800 mb-2">
+                    Servicio a Domicilio
+                  </p>
+                  <div class="space-y-1">
+                    {location.phones.map((phone, index) => (
+                      <a
+                        href={`tel:${phone.replace(/\s/g, "")}`}
+                        class="block text-gray-600 hover:text-green-500 transition-colors duration-300"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3 mb-6">
+                <Clock className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                <div>
+                  <p class="font-semibold text-gray-800">Horario</p>
+                  <p class="text-gray-600">{location.hours}</p>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button class="flex-1 bg-orange-500 text-white py-3 px-4 rounded-full font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+                  <Phone className="size-4" />
+                  <span>Llamar</span>
+                </button>
+                <button class="flex-1 border-2 border-orange-500 text-orange-500 py-3 px-4 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2">
+                  <Navigation className="w-4 h-4" />
+                  <span>Ubicación</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div
+      class="mt-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white text-center"
+    >
+      <h3 class="text-2xl md:text-3xl font-bold mb-4">
+        ¿No encuentras una sucursal cerca de ti?
+      </h3>
+      <p class="text-lg mb-6 opacity-90">
+        ¡No te preocupes! Ofrecemos servicio a domicilio en todas nuestras
+        ubicaciones
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          class="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300"
+        >
+          Ver Zonas de Entrega
+        </button>
+        <button
+          class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-500 transition-all duration-300"
+        >
+          Contactar Soporte
+        </button>
+      </div>
+    </div>
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center p-6 bg-white rounded-xl shadow-md">
+        <div class="text-3xl mb-3">🚚</div>
+        <h4 class="font-semibold text-gray-800 mb-2">Entrega Rápida</h4>
+        <p class="text-sm text-gray-600">30-45 minutos promedio</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-xl shadow-md">
+        <div class="text-3xl mb-3">💳</div>
+        <h4 class="font-semibold text-gray-800 mb-2">Pago Fácil</h4>
+        <p class="text-sm text-gray-600">Efectivo y tarjetas</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-xl shadow-md">
+        <div class="text-3xl mb-3">📱</div>
+        <h4 class="font-semibold text-gray-800 mb-2">Pedidos por Teléfono</h4>
+        <p class="text-sm text-gray-600">Llamada directa</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-xl shadow-md">
+        <div class="text-3xl mb-3">🎯</div>
+        <h4 class="font-semibold text-gray-800 mb-2">Cobertura Amplia</h4>
+        <p class="text-sm text-gray-600">Toda la ciudad</p>
+      </div>
+    </div>
+  </div>
+</section>
+<Footer/>
