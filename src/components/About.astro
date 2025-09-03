@@ -6,10 +6,10 @@ import Clock from "../../public/svg/Clock.astro";
 import Image from "astro/components/Image.astro";
 
 const stats = [
-  { icon: Users, number: "25K+", label: "Clientes Satisfechos" },
-  { icon: Trophy, number: "30+", label: "Años de Experiencia" },
-  { icon: Heart, number: "100%", label: "Ingredientes Frescos" },
-  { icon: Clock, number: "24/7", label: "Servicio Disponible" },
+  {icon: Users, number: "25K+", label: "Clientes Satisfechos"},
+  {icon: Trophy, number: "30+", label: "Años de Experiencia"},
+  {icon: Heart, number: "100%", label: "Ingredientes Frescos"},
+  {icon: Clock, number: "24/7", label: "Servicio Disponible"},
 ];
 ---
 
@@ -37,32 +37,28 @@ const stats = [
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
           <div class="flex items-center space-x-3">
             <div
-              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
-            >
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
               <span class="text-orange-500 font-bold">✓</span>
             </div>
             <span class="text-gray-700">Ingredientes 100% frescos</span>
           </div>
           <div class="flex items-center space-x-3">
             <div
-              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
-            >
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
               <span class="text-orange-500 font-bold">✓</span>
             </div>
             <span class="text-gray-700">Recetas tradicionales</span>
           </div>
           <div class="flex items-center space-x-3">
             <div
-              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
-            >
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
               <span class="text-orange-500 font-bold">✓</span>
             </div>
             <span class="text-gray-700">Servicio al cliente excepcional</span>
           </div>
           <div class="flex items-center space-x-3">
             <div
-              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center"
-            >
+              class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
               <span class="text-orange-500 font-bold">✓</span>
             </div>
             <span class="text-gray-700">Precios justos y accesibles</span>
@@ -71,15 +67,14 @@ const stats = [
 
         <a
           href="/sucursales"
-          class="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
-        >
+          class="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
           Conoce Nuestras Sucursales
         </a>
       </div>
 
       <div class="relative">
         <Image
-          src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop"
+          src="/src/assets/placeholder.svg"
           alt="Interior del restaurante"
           width={600}
           height={800}
@@ -87,8 +82,7 @@ const stats = [
           class="rounded-2xl shadow-2xl"
         />
         <div
-          class="absolute -bottom-8 -left-8 bg-orange-500 text-white p-6 rounded-2xl shadow-lg"
-        >
+          class="absolute -bottom-8 -left-8 bg-orange-500 text-white p-6 rounded-2xl shadow-lg">
           <p class="text-3xl font-bold">30+</p>
           <p class="text-sm">Años sirviendo</p>
         </div>
@@ -96,7 +90,7 @@ const stats = [
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
       {
-        stats.map(({ icon: Icon, number, label }) => (
+        stats.map(({icon: Icon, number, label}) => (
           <div class="text-center group">
             <div class="size-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-500 transition-colors duration-300">
               <Icon className="size-7 text-orange-500 group-hover:text-white transition-colors duration-300" />
