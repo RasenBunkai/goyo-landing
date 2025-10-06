@@ -8,7 +8,7 @@ const CartIcon = () => {
 
   return (
     <a
-      href="#cart"
+      href="/carrito"
       className="relative p-2 text-gray-700 hover:text-orange-500 transition-colors duration-300">
       <ShoppingCart className="w-6 h-6" />
       {totalItems > 0 && (

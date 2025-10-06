@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import FullMenu from "../components/FullMenu.jsx";
+import CartComponent from "../components/Cart.tsx";
 import Footer from "../components/Footer.astro";
 import CartProviderWrapper from "../components/CartProviderWrapper.astro";
 ---
@@ -9,7 +9,7 @@ import CartProviderWrapper from "../components/CartProviderWrapper.astro";
 <Layout>
   <CartProviderWrapper client:only>
     <Navbar />
-    <FullMenu client:load />
+    <CartComponent client:load />
     <Footer />
   </CartProviderWrapper>
 </Layout>

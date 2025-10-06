@@ -1,18 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro"
+import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
 import Menu from "../components/Menu.jsx";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import CartProviderWrapper from "../components/CartProviderWrapper.astro";
 ---
 
 <Layout>
-  <Navbar/>
-  <Hero />
-  <Menu client:load />
-  <About />
-  <Contact />
-  <Footer />
+  <CartProviderWrapper client:only>
+    <Navbar />
+    <Hero />
+    <Menu client:load />
+    <About />
+    <Contact />
+    <Footer />
+  </CartProviderWrapper>
 </Layout>

@@ -1,14 +1,13 @@
 ---
 import "./src/styles/global.css";
 import {ClientRouter} from "astro:transitions";
-import CartContext from "../context/CartContext";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="description"
@@ -18,23 +17,10 @@ import CartContext from "../context/CartContext";
       name="keywords"
       content="tortas, hamburguesas, comida rápida, bebidas, delivery"
     />
-    <meta
-      property="og:title"
-      content="Tortas Goyo - Sabor Auténtico desde 1995"
-    />
-    <meta
-      property="og:description"
-      content="Disfruta de las mejores tortas y hamburguesas de la ciudad con ingredientes frescos."
-    />
-    <meta property="og:image" content="/images/og-image.jpg" />
-    <meta property="og:url" content="https://tortasgoyo.com" />
-    <meta name="twitter:card" content="summary_large_image" />
     <title>Tortas Goyo - Sabor Auténtico</title>
   </head>
   <body>
-    <CartContext>
     <slot />
-    </CartContext>
     <ClientRouter />
   </body>
 </html>

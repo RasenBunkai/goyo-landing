@@ -118,7 +118,7 @@ const Cart = () => {
               ¡Agrega algunos productos deliciosos a tu carrito!
             </p>
             <a
-              href="#menu"
+              href="/menu"
               className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 inline-block">
               Ver Menú
             </a>

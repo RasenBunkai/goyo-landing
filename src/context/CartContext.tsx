@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState, ReactNode} from "react";
+import React, {createContext, useContext, useState} from "react";
 
 export interface CartItem {
   id: string;
@@ -30,7 +30,7 @@ export const useCart = () => {
 };
 
 interface CartProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({children}) => {

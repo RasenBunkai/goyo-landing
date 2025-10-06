@@ -1,8 +1,12 @@
 import React, {useState} from "react";
+import {useCart} from "../context/CartContext";
+
+const {addItem} = useCart();
 
 const FullMenu = () => {
   const [activeCategory, setActiveCategory] = useState("hamburguesas");
   const [searchTerm, setSearchTerm] = useState("");
+  const {addItem} = useCart();
 
   const categories = [
     {id: "hamburguesas", name: "Hamburguesas", icon: "🍔"},
@@ -480,7 +484,17 @@ const FullMenu = () => {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 {item.description}
               </p>
-              <button className="w-full bg-orange-500 text-white py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+              <button
+                onClick={() =>
+                  addItem({
+                    id: `${activeCategory}-${index}`,
+                    name: item.name,
+                    description: item.description,
+                    price: item.price,
+                    category: activeCategory,
+                  })
+                }
+                className="w-full bg-orange-500 text-white py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2 cursor-pointer">
                 Agregar
               </button>
             </div>
