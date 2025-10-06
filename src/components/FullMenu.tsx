@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 const FullMenu = () => {
   const [activeCategory, setActiveCategory] = useState("hamburguesas");
   const [searchTerm, setSearchTerm] = useState("");
 
   const categories = [
-    { id: "hamburguesas", name: "Hamburguesas", icon: "🍔" },
-    { id: "especiales", name: "Especiales", icon: "⭐" },
-    { id: "sencillas", name: "Sencillas", icon: "🥪" },
-    { id: "aguas", name: "Aguas Frescas", icon: "🥤" },
-    { id: "licuados", name: "Licuados", icon: "🥛" },
+    {id: "hamburguesas", name: "Hamburguesas", icon: "🍔"},
+    {id: "especiales", name: "Especiales", icon: "⭐"},
+    {id: "sencillas", name: "Sencillas", icon: "🥪"},
+    {id: "aguas", name: "Aguas Frescas", icon: "🥤"},
+    {id: "licuados", name: "Licuados", icon: "🥛"},
   ];
 
   const menuData = {
@@ -424,13 +424,12 @@ const FullMenu = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              className="size-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-            >
+              className="size-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
               />
             </svg>
@@ -457,8 +456,7 @@ const FullMenu = () => {
                   activeCategory === category.id
                     ? "bg-orange-500 text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-orange-100 shadow-md"
-                }`}
-              >
+                }`}>
                 <span className="text-xl mr-2">{category.icon}</span>{" "}
                 {itemCount} {category.name}
               </button>
@@ -470,8 +468,7 @@ const FullMenu = () => {
           {filteredItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
+              className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="flex justify-between items-start mb-3">
                 <h3 className="text-lg font-bold text-gray-800 leading-tight">
                   {item.name}
