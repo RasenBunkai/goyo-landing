@@ -1,7 +1,6 @@
 ---
 import Phone from "../../public/svg/Phone.astro";
 import MapPin from "../../public/svg/MapPin.astro";
-import CartIcon from "./CartIcon.tsx";
 
 const navItems = [
   {name: "Inicio", href: "/"},
@@ -45,8 +44,6 @@ const navItems = [
             </a>
           ))
         }
-        <!-- Agrega el ícono del carrito aquí -->
-        <CartIcon client:load />
         <a
           href="/carrito"
           class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 focus:ring focus:ring-orange-300 transition duration-300">

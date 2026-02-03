@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {useCart} from "../context/CartContext";
 
 const categories = [
   {id: "tortas", name: "Tortas", icon: "🥪"},
@@ -90,7 +89,6 @@ const menuItems = {
 
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("tortas");
-  const {addItem} = useCart();
 
   return (
     <section id="menu" className="py-20 px-16 bg-gray-50">

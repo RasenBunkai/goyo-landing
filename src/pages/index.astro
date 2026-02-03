@@ -6,16 +6,13 @@ import Menu from "../components/Menu.jsx";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
-import CartProviderWrapper from "../components/CartProviderWrapper.astro";
 ---
 
 <Layout>
-  <CartProviderWrapper client:only>
     <Navbar />
     <Hero />
     <Menu client:load />
     <About />
     <Contact />
     <Footer />
-  </CartProviderWrapper>
 </Layout>
