@@ -1,18 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Menu from "../components/Menu.jsx";
-import About from "../components/About.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero.tsx";
+import Menu from "@/components/Menu";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+
+const title = "Tortas Goyo | Tortas, hamburguesas y bebidas";
+const description =
+  "Desde 1995: tortas, hamburguesas y bebidas. Ingredientes frescos, porciones generosas y pedidos por WhatsApp.";
 ---
 
-<Layout>
-    <Navbar />
-    <Hero />
-    <Menu client:load />
-    <About />
-    <Contact />
-    <Footer />
+<Layout
+  title={title}
+  description={description}
+  canonical={Astro.url.href}
+  ogImage="/og/og-home.jpg"
+>
+  <Navbar
+    client:load
+    pathname={Astro.url.pathname}
+    phoneDisplay="998 888 42 97"
+    phoneTel="529988884297"
+    mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
+  />
+  <Hero
+    client:load
+    waPhoneE164="529988884297"
+    hoursLabel="Lun–Dom · 9:00–23:00"
+    deliveryLabel="Delivery en todas las sucursales"
+    locationsLabel="5 sucursales"
+    heroImageUrl="/src/assets/placeholder.svg"
+  />
+  <Menu client:load />
+  <About client:load imageUrl="/src/assets/placeholder.svg" />
+  <Contact client:load />
+  <Footer client:load />
 </Layout>

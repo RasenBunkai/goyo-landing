@@ -1,12 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import FullMenu from "../components/FullMenu.jsx";
-import Footer from "../components/Footer.astro";
+import Navbar from "@/components/Navbar";
+import FullMenu from "@/components/FullMenu";
+import Footer from "@/components/Footer";
+
+const title = "Menú | Tortas Goyo";
+const description =
+  "Menú completo: tortas, hamburguesas, aguas frescas y licuados. Pide por WhatsApp.";
 ---
 
-<Layout>
-    <Navbar />
-    <FullMenu client:load />
-    <Footer />
+<Layout title={title} description={description} ogImage="/og/og-menu.jpg">
+  <Navbar
+    client:load
+    pathname={Astro.url.pathname}
+    phoneDisplay="998 888 42 97"
+    phoneTel="529988884297"
+    mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
+  />
+  <FullMenu client:load />
+  <Footer client:load />
 </Layout>

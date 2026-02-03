@@ -1,8 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Locations from "../components/Locations.astro";
+import Locations from "@/components/Locations";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const title = "Sucursales | Tortas Goyo";
+const description =
+  "Ubica la sucursal más cercana, horarios y teléfonos para servicio a domicilio.";
 ---
 
-<Layout>
-  <Locations/>
+<Layout title={title} description={description} ogImage="/og/og-locations.jpg">
+  <Navbar
+    client:load
+    pathname={Astro.url.pathname}
+    phoneDisplay="998 888 42 97"
+    phoneTel="529988884297"
+    mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
+  />
+  <Locations client:load />
+  <Footer client:load />
 </Layout>
