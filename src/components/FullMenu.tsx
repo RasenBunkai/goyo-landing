@@ -250,7 +250,7 @@ export default function FullMenu() {
                     value={cat.id}
                     className="rounded-full data-[state=active]:bg-orange-500 data-[state=active]:text-white"
                   >
-                    <ActiveIcon className="mr-2 h-4 w-4" />
+                    <ActiveIcon className="mr-2 size-4" />
                     {cat.name}
                     <Badge variant="secondary" className="ml-2 bg-gray-100 text-gray-700">
                       {count}
@@ -261,18 +261,8 @@ export default function FullMenu() {
             </TabsList>
           </div>
 
-          <TabsContent value={activeCategory} className="mt-0">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-sm text-gray-600">
-                Categoría: <span className="font-semibold">{activeCategoryName}</span>
-              </div>
-              <div className="text-sm text-gray-600">
-                Resultados: <span className="font-semibold">{items.length}</span>
-              </div>
-            </div>
-
-            <Separator className="mb-6" />
-
+          <TabsContent value={activeCategory} className="my-0">
+            <Separator className="my-10 sm:mb-6"/>
             {items.length === 0 ? (
               <div className="text-center py-16">
                 <div className="text-5xl mb-4">🔎</div>

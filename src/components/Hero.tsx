@@ -31,7 +31,7 @@ export default function Hero({
   hoursLabel = "Lun–Dom · 9:00–23:00",
   deliveryLabel = "Delivery disponible",
   locationsLabel = "5 sucursales",
-  heroImageUrl = "/src/assets/placeholder.svg",
+  heroImageUrl = "/src/assets/hero/frontside-goyo.png",
 }: HeroProps) {
   const waLink = React.useMemo(() => {
     const text = encodeURIComponent(waText);
@@ -40,8 +40,7 @@ export default function Hero({
 
   return (
     <section className="relative isolate">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 ">
         <img
           src={heroImageUrl}
           alt="heroImage"
@@ -49,28 +48,23 @@ export default function Hero({
           loading="eager"
           fetchPriority="high"
         />
-        {/* Overlay: menos genérico que “bg-black/50” */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/80" />
         <div className="absolute inset-0 [background:radial-gradient(60%_50%_at_50%_20%,rgba(255,255,255,0.14),transparent_60%)]" />
       </div>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex min-h-[calc(100vh-4rem)] items-center py-16 sm:py-20">
           <div className="w-full">
-            {/* Badges */}
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary" className="bg-white/10 text-white border-white/10">
+              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
                 Desde 1995
               </Badge>
-              <Badge variant="secondary" className="bg-white/10 text-white border-white/10">
+              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
                 Ingredientes frescos
               </Badge>
-              <Badge variant="secondary" className="bg-white/10 text-white border-white/10">
+              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
                 Atención rápida
               </Badge>
             </div>
-
-            {/* Headline */}
             <div className="mt-6 max-w-3xl">
               <h1 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 {brand}
@@ -82,31 +76,19 @@ export default function Hero({
                 {description}
               </p>
             </div>
-
-            {/* CTAs */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700">
                 <a href={waLink} target="_blank" rel="noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Pedir por WhatsApp
                 </a>
               </Button>
-
               <Button asChild size="lg" variant="secondary" className="rounded-full bg-white/10 text-white hover:bg-white/15">
                 <a href={menuHref}>
                   Ver menú
                 </a>
               </Button>
-
-              <a
-                href={locationsHref}
-                className="text-sm font-medium text-white/80 hover:text-white underline underline-offset-4 sm:ml-2"
-              >
-                Ver sucursales
-              </a>
             </div>
-
-            {/* Proof strip */}
             <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
@@ -138,10 +120,8 @@ export default function Hero({
                 </div>
               </div>
             </div>
-
-            {/* Micro-copy útil */}
             <p className="mt-6 text-xs text-white/60">
-              Tip: Para pedidos rápidos, escribe tu sucursal y lo que deseas ordenar.
+              Tip: Precios sujetos a cambio sin previo aviso.
             </p>
           </div>
         </div>

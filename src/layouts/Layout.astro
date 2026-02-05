@@ -81,7 +81,7 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
     />
   </head>
 
-  <body>
+  <body class="bg-slate-200">
     <slot />
     <ClientRouter />
   </body>
@@ -90,8 +90,6 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
 <style>
   html,
   body {
-    margin: 0;
-    width: 100%;
     scroll-behavior: smooth;
   }
 </style>

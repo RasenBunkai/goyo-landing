@@ -4,7 +4,14 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Phone, Clock, Navigation, MessageCircle, Star } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Navigation,
+  MessageCircle,
+  Star,
+} from "lucide-react";
 
 type Location = {
   id: number;
@@ -75,7 +82,7 @@ function mapsHref(query: string) {
 
 function waHref(locationName: string) {
   const text = encodeURIComponent(
-    `Hola, quiero hacer un pedido.\nSucursal: ${locationName}\n¿Me apoyas con disponibilidad y tiempos?`
+    `Hola, quiero hacer un pedido.\nSucursal: ${locationName}\n¿Me apoyas con disponibilidad y tiempos?`,
   );
   return `https://wa.me/${WA_PHONE}?text=${text}`;
 }
@@ -131,7 +138,9 @@ export default function Locations() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Horario (referencia)</p>
-                  <p className="text-2xl font-bold text-gray-900">{hoursSample}</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {hoursSample}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -176,7 +185,9 @@ export default function Locations() {
                             </Badge>
                           )}
                         </div>
-                        <p className="mt-1 text-sm text-gray-600">Sucursal #{loc.id}</p>
+                        <p className="mt-1 text-sm text-gray-600">
+                          Sucursal #{loc.id}
+                        </p>
                       </div>
 
                       <div className="rounded-xl bg-orange-50 px-3 py-2">
@@ -193,7 +204,9 @@ export default function Locations() {
                       <div className="flex items-start gap-3">
                         <MapPin className="h-4 w-4 text-orange-600 mt-0.5" />
                         <div>
-                          <p className="text-sm font-medium text-gray-900">Dirección</p>
+                          <p className="text-sm font-medium text-gray-900">
+                            Dirección
+                          </p>
                           <p className="text-sm text-gray-600 leading-relaxed">
                             {loc.address}
                           </p>
@@ -234,17 +247,21 @@ export default function Locations() {
                   </CardContent>
 
                   <CardFooter className="p-6 pt-0">
-                    <div className="w-full flex flex-col sm:flex-row gap-3">
+                    <div className="w-full flex flex-col gap-3">
                       <Button asChild className="rounded-full w-full">
                         <a href={telHref(loc.phones[0])}>
-                          <Phone className="mr-2 h-4 w-4" />
+                          <Phone className="mr-2 size-4" />
                           Llamar
                         </a>
                       </Button>
 
-                      <Button asChild variant="outline" className="rounded-full w-full">
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="rounded-full w-full"
+                      >
                         <a href={wa} target="_blank" rel="noreferrer">
-                          <MessageCircle className="mr-2 h-4 w-4" />
+                          <MessageCircle className="mr-2 size-4" />
                           WhatsApp
                         </a>
                       </Button>
@@ -268,13 +285,21 @@ export default function Locations() {
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                   <Button asChild className="rounded-full">
-                    <a href={mapsHref("Tortas Goyo")} target="_blank" rel="noreferrer">
+                    <a
+                      href={mapsHref("Tortas Goyo")}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Navigation className="mr-2 h-4 w-4 -rotate-45" />
                       Buscar en Maps
                     </a>
                   </Button>
                   <Button asChild variant="outline" className="rounded-full">
-                    <a href={waHref("Sucursal más cercana")} target="_blank" rel="noreferrer">
+                    <a
+                      href={waHref("Sucursal más cercana")}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <MessageCircle className="mr-2 h-4 w-4" />
                       Pedir ayuda por WhatsApp
                     </a>

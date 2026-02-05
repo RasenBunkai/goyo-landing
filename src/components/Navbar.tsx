@@ -37,9 +37,8 @@ export default function Navbar(props: {
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-white/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
-        {/* Brand */}
         <a href="/" className="flex items-center gap-3">
-          <div className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-orange-500 to-red-500 text-white font-bold">
+          <div className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white font-bold">
             TG
           </div>
           <div className="leading-tight">
@@ -50,12 +49,12 @@ export default function Navbar(props: {
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-6 text-sm text-gray-600">
-          <a className="inline-flex items-center gap-2 hover:text-orange-600" href={`tel:${phoneTel}`}>
-            <Phone className="h-4 w-4" />
+          <a className="inline-flex items-center gap-2 hover:text-blue-600" href={`tel:${phoneTel}`}>
+            <Phone className="size-4" />
             {phoneDisplay}
           </a>
-          <a className="inline-flex items-center gap-2 hover:text-orange-600" href={mapsUrl} target="_blank" rel="noreferrer">
-            <MapPin className="h-4 w-4" />
+          <a className="inline-flex items-center gap-2 hover:text-blue-600" href={mapsUrl} target="_blank" rel="noreferrer">
+            <MapPin className="size-4" />
             Ver ubicación
           </a>
         </div>
@@ -68,28 +67,26 @@ export default function Navbar(props: {
               className={cx(
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 isActive(item.href)
-                  ? "bg-orange-50 text-orange-700"
-                  : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-blue-50 text-blue-700"
+                  : "text-gray-700 hover:bg-sky-100"
               )}
             >
               {item.name}
             </a>
           ))}
 
-          <Button asChild className="ml-2 rounded-full">
+          <Button asChild className="ml-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white">
             <a href={waLink} target="_blank" rel="noreferrer">
               <MessageCircle className="mr-2 h-4 w-4" />
               WhatsApp
             </a>
           </Button>
         </nav>
-
-        {/* Mobile */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Abrir menú">
-                <Menu className="h-5 w-5" />
+                <Menu className="size-5" />
               </Button>
             </SheetTrigger>
 
@@ -105,7 +102,7 @@ export default function Navbar(props: {
                     href={item.href}
                     className={cx(
                       "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                      isActive(item.href) ? "bg-orange-50 text-orange-700" : "hover:bg-gray-100"
+                      isActive(item.href) ? "bg-blue-50 text-blue-700" : "hover:bg-gray-100"
                     )}
                   >
                     {item.name}
@@ -116,18 +113,18 @@ export default function Navbar(props: {
               <Separator className="my-6" />
 
               <div className="flex flex-col gap-3 text-sm">
-                <a className="inline-flex items-center gap-2 hover:text-orange-600" href={`tel:${phoneTel}`}>
-                  <Phone className="h-4 w-4" />
+                <a className="inline-flex items-center gap-2 hover:text-blue-600 px-4" href={`tel:${phoneTel}`}>
+                  <Phone className="size-4" />
                   {phoneDisplay}
                 </a>
-                <a className="inline-flex items-center gap-2 hover:text-orange-600" href={mapsUrl} target="_blank" rel="noreferrer">
-                  <MapPin className="h-4 w-4" />
+                <a className="inline-flex items-center gap-2 hover:text-blue-600 px-4" href={mapsUrl} target="_blank" rel="noreferrer">
+                  <MapPin className="size-4" />
                   Ver ubicación
                 </a>
 
-                <Button asChild className="mt-2 rounded-full">
+                <Button asChild className="mt-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white">
                   <a href={waLink} target="_blank" rel="noreferrer">
-                    <MessageCircle className="mr-2 h-4 w-4" />
+                    <MessageCircle className="mr-2 size-4" />
                     Pedir por WhatsApp
                   </a>
                 </Button>

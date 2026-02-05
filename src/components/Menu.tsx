@@ -70,19 +70,16 @@ function buildWhatsAppLink(item: { name: string; price: number }) {
 
 export default function Menu() {
   return (
-    <section id="menu" className="py-20 bg-gray-50">
+    <section id="menu" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900">
-            Favoritos de <span className="text-orange-500">Tortas Goyo</span>
+            Favoritos de <span className="text-blue-500">Tortas Goyo</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Los platillos más pedidos por nuestros clientes.
           </p>
         </div>
-
-        {/* Grid de productos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {favorites.map((item) => (
             <Card key={item.id} className="overflow-hidden">
@@ -104,7 +101,7 @@ export default function Menu() {
               <CardContent className="p-5">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <span className="text-xl font-bold text-orange-500">
+                  <span className="text-xl font-bold text-blue-500">
                     ${item.price}
                   </span>
                 </div>
@@ -114,7 +111,7 @@ export default function Menu() {
               <Separator />
 
               <CardFooter className="p-5">
-                <Button asChild className="w-full rounded-full">
+                <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700">
                   <a
                     href={buildWhatsAppLink(item)}
                     target="_blank"

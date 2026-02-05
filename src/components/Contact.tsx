@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
@@ -40,26 +39,23 @@ export default function Contact({ showMap = true }: ContactProps) {
   const maps = buildMapsLink();
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            <span className="text-orange-500">Contáctanos</span>
+            <span className="text-blue-500">Contáctanos</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Haz tu pedido por WhatsApp, llámanos o visita tu sucursal.
           </p>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          {/* Left: info cards */}
           <div className="space-y-4">
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-orange-50 p-3">
-                    <Phone className="h-5 w-5 text-orange-600" />
+                  <div className="rounded-xl bg-blue-50 p-3">
+                    <Phone className="h-5 w-5 text-blue-600" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-gray-900">Teléfono</p>
@@ -75,7 +71,7 @@ export default function Contact({ showMap = true }: ContactProps) {
                         >
                           <a
                             href={`tel:${CONTACT.phonesTel[idx]}`}
-                            className="text-sm font-medium text-gray-900 hover:text-orange-600"
+                            className="text-sm font-medium text-gray-900 hover:text-blue-600"
                           >
                             {label}
                           </a>
@@ -95,8 +91,8 @@ export default function Contact({ showMap = true }: ContactProps) {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-orange-50 p-3">
-                    <Clock className="h-5 w-5 text-orange-600" />
+                  <div className="rounded-xl bg-blue-50 p-3">
+                    <Clock className="h-5 w-5 text-blue-600" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-gray-900">Horarios</p>
@@ -119,8 +115,8 @@ export default function Contact({ showMap = true }: ContactProps) {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-orange-50 p-3">
-                    <MapPin className="h-5 w-5 text-orange-600" />
+                  <div className="rounded-xl bg-blue-50 p-3">
+                    <MapPin className="h-5 w-5 text-blue-600" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-gray-900">Dirección</p>
@@ -147,9 +143,7 @@ export default function Contact({ showMap = true }: ContactProps) {
                 </div>
               </CardContent>
             </Card>
-
-            {/* CTA WhatsApp */}
-            <Card className="rounded-2xl border-orange-200">
+            <Card className="rounded-2xl border-blue-200">
               <CardContent className="p-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
@@ -174,8 +168,6 @@ export default function Contact({ showMap = true }: ContactProps) {
               </CardContent>
             </Card>
           </div>
-
-          {/* Right: map */}
           <div className="space-y-4">
             <Card className="rounded-2xl overflow-hidden">
               <CardContent className="p-0">
@@ -195,7 +187,7 @@ export default function Contact({ showMap = true }: ContactProps) {
                       <MapPin className="h-10 w-10 text-gray-500 mx-auto mb-3" />
                       <p className="text-sm font-semibold text-gray-900">Mapa</p>
                       <p className="mt-1 text-sm text-gray-600">
-                        Activa el mapa cuando tengas el enlace real.
+                        Mapa del restaurante.
                       </p>
                       <Button asChild className="mt-4 rounded-full">
                         <a href={maps} target="_blank" rel="noreferrer">

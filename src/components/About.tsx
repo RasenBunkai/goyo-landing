@@ -39,20 +39,24 @@ const checklist = [
   "Sucursales con cobertura de delivery",
 ];
 
-export default function About({ imageUrl = "/images/about.jpg" }: AboutProps) {
+export default function About({
+  imageUrl = "/src/assets/about/tortagoyo.webp",
+}: AboutProps) {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Texto */}
           <div>
-            <Badge variant="secondary" className="mb-4">
+            <Badge
+              variant="secondary"
+              className="mb-4 bg-blue-600/10 border-white/10 text-blue-600"
+            >
               Nuestra historia
             </Badge>
 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               Tradición, rapidez y{" "}
-              <span className="text-orange-500">sabor auténtico</span>
+              <span className="text-blue-500">sabor auténtico</span>
             </h2>
 
             <p className="mt-5 text-gray-600 leading-relaxed">
@@ -73,7 +77,7 @@ export default function About({ imageUrl = "/images/about.jpg" }: AboutProps) {
               {checklist.map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-50">
-                    <Check className="h-4 w-4 text-orange-600" />
+                    <Check className="h-4 w-4 text-blue-600" />
                   </span>
                   <span className="text-sm text-gray-700">{t}</span>
                 </li>
@@ -94,8 +98,6 @@ export default function About({ imageUrl = "/images/about.jpg" }: AboutProps) {
               </Button>
             </div>
           </div>
-
-          {/* Imagen + cards */}
           <div className="relative">
             <div className="overflow-hidden rounded-3xl border bg-gray-100">
               <img
@@ -105,14 +107,13 @@ export default function About({ imageUrl = "/images/about.jpg" }: AboutProps) {
                 loading="lazy"
               />
             </div>
-            {/* Highlights */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {highlights.map(({ Icon, title, body }) => (
                 <Card key={title} className="rounded-2xl">
                   <CardContent className="p-5">
                     <div className="flex items-start gap-3">
-                      <div className="rounded-xl bg-orange-50 p-3">
-                        <Icon className="h-5 w-5 text-orange-600" />
+                      <div className="rounded-xl bg-blue-50 p-3">
+                        <Icon className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">
@@ -126,23 +127,6 @@ export default function About({ imageUrl = "/images/about.jpg" }: AboutProps) {
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Stats (más creíbles, opcional) */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { label: "Años de experiencia", value: "30+" },
-            { label: "Sucursales", value: "5" },
-            { label: "Pedidos por WhatsApp", value: "Sí" },
-            { label: "Ingredientes frescos", value: "Diario" },
-          ].map((s) => (
-            <Card key={s.label} className="rounded-2xl">
-              <CardContent className="p-5 text-center">
-                <p className="text-2xl font-bold text-gray-900">{s.value}</p>
-                <p className="mt-1 text-xs text-gray-600">{s.label}</p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
