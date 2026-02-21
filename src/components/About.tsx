@@ -40,7 +40,7 @@ const checklist = [
 ];
 
 export default function About({
-  imageUrl = "/src/assets/about/tortagoyo.webp",
+  imageUrl = "../src/assets/about/tortagoyo.webp",
 }: AboutProps) {
   return (
     <section id="about" className="py-20">
