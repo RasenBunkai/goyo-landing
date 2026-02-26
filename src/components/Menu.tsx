@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { MessageCircle } from "lucide-react";
 
-const WA_PHONE = "525500000000"; // número genérico
+const WA_PHONE = "525500000000";
 
 const favorites = [
   {
@@ -63,7 +63,7 @@ const favorites = [
 
 function buildWhatsAppLink(item: { name: string; price: number }) {
   const text = encodeURIComponent(
-    `Hola, quiero pedir:\n- 1x ${item.name} ($${item.price})\n¿Está disponible?`
+    `Hola, quiero pedir:\n- 1x ${item.name} ($${item.price})\n¿Está disponible?`,
   );
   return `https://wa.me/${WA_PHONE}?text=${text}`;
 }
@@ -73,16 +73,17 @@ export default function Menu() {
     <section id="menu" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Favoritos de <span className="text-blue-500">Tortas Goyo</span>
+          <h2 className="text-4xl font-bold text-foreground">
+            Favoritos de <span className="text-primary">Tortas Goyo</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Los platillos más pedidos por nuestros clientes.
           </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {favorites.map((item) => (
-            <Card key={item.id} className="overflow-hidden">
+            <Card key={item.id} className="overflow-hidden rounded-2xl">
               <div className="relative">
                 <img
                   src={item.image}
@@ -92,26 +93,32 @@ export default function Menu() {
                 />
 
                 {item.popular && (
-                  <Badge className="absolute top-4 left-4 bg-red-500 text-white">
+                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                     Popular
                   </Badge>
                 )}
               </div>
 
               <CardContent className="p-5">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <span className="text-xl font-bold text-blue-500">
+                <div className="flex justify-between items-start mb-2 gap-3">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {item.name}
+                  </h3>
+
+                  <span className="text-xl font-bold text-primary whitespace-nowrap">
                     ${item.price}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600">{item.description}</p>
+
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </CardContent>
 
               <Separator />
 
               <CardFooter className="p-5">
-                <Button asChild className="w-full rounded-full bg-blue-600 hover:bg-blue-700">
+                <Button asChild className="w-full rounded-full">
                   <a
                     href={buildWhatsAppLink(item)}
                     target="_blank"
