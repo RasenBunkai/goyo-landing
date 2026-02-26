@@ -2,47 +2,22 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Truck, MessageCircle } from "lucide-react";
+import heroImg from "@/assets/hero/frontside-goyo.png";
+const WA_PHONE = "529988884297";
 
-type HeroProps = {
-  brand?: string;
-  tagline?: string;
-  description?: string;
-
-  waPhoneE164: string; // ejemplo: "529988884297"
-  waText?: string;
-
-  menuHref?: string;   // "/menu"
-  locationsHref?: string; // "/sucursales"
-
-  hoursLabel?: string; // "Lun–Dom · 9:00–23:00"
-  deliveryLabel?: string; // "Delivery en todas las sucursales"
-  locationsLabel?: string; // "5 sucursales"
-  heroImageUrl?: string; // "/images/hero.jpg" (en /public)
-};
-
-export default function Hero({
-  brand = "Tortas Goyo",
-  tagline = "Sabor auténtico, rápido y bien servido.",
-  description = "Tortas, hamburguesas y bebidas hechas al momento con ingredientes frescos. Pide por WhatsApp o visita tu sucursal más cercana.",
-  waPhoneE164,
-  waText = "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?",
-  menuHref = "/menu",
-  locationsHref = "/sucursales",
-  hoursLabel = "Lun–Dom · 9:00–23:00",
-  deliveryLabel = "Delivery disponible",
-  locationsLabel = "5 sucursales",
-  heroImageUrl = "/src/assets/hero/frontside-goyo.png",
-}: HeroProps) {
+export default function Hero() {
   const waLink = React.useMemo(() => {
-    const text = encodeURIComponent(waText);
-    return `https://wa.me/${waPhoneE164}?text=${text}`;
-  }, [waPhoneE164, waText]);
+    const text = encodeURIComponent(
+      "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?",
+    );
+    return `https://wa.me/${WA_PHONE}?text=${text}`;
+  }, []);
 
   return (
     <section className="relative isolate">
       <div className="absolute inset-0 -z-10 ">
         <img
-          src={heroImageUrl}
+          src={heroImg.src}
           alt="heroImage"
           className="h-full w-full object-cover"
           loading="eager"
@@ -55,38 +30,56 @@ export default function Hero({
         <div className="flex min-h-[calc(100vh-4rem)] items-center py-16 sm:py-20">
           <div className="w-full">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
+              <Badge
+                variant="secondary"
+                className="bg-primary/10 text-white border-white/10"
+              >
                 Desde 1995
               </Badge>
-              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
+              <Badge
+                variant="secondary"
+                className="bg-primary/10 text-white border-white/10"
+              >
                 Ingredientes frescos
               </Badge>
-              <Badge variant="secondary" className="bg-blue-600/10 text-white border-white/10">
+              <Badge
+                variant="secondary"
+                className="bg-primary/10 text-white border-white/10"
+              >
                 Atención rápida
               </Badge>
             </div>
             <div className="mt-6 max-w-3xl">
               <h1 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                {brand}
+                Tortas Goyo
               </h1>
               <p className="mt-4 text-pretty text-lg text-white/85 sm:text-xl">
-                {tagline}
+                Sabor auténtico, rápido y bien servido.
               </p>
               <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-white/75 sm:text-base">
-                {description}
+                Tortas, hamburguesas y bebidas hechas al momento con
+                ingredientes frescos. Pide por WhatsApp o visita tu sucursal más
+                cercana.
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-primary hover:bg-primary/90"
+              >
                 <a href={waLink} target="_blank" rel="noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Pedir por WhatsApp
                 </a>
               </Button>
-              <Button asChild size="lg" variant="secondary" className="rounded-full bg-white/10 text-white hover:bg-white/15">
-                <a href={menuHref}>
-                  Ver menú
-                </a>
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="rounded-full bg-white/10 text-white hover:bg-white/15"
+              >
+                <a href="/menu">Ver menú</a>
               </Button>
             </div>
             <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -95,7 +88,9 @@ export default function Hero({
                   <Clock className="h-5 w-5 text-white/85" />
                   <div>
                     <p className="text-sm font-semibold text-white">Horario</p>
-                    <p className="text-xs text-white/75">{hoursLabel}</p>
+                    <p className="text-xs text-white/75">
+                      Lun–Dom · 9:00–23:00
+                    </p>
                   </div>
                 </div>
               </div>
@@ -104,8 +99,10 @@ export default function Hero({
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-white/85" />
                   <div>
-                    <p className="text-sm font-semibold text-white">Ubicaciones</p>
-                    <p className="text-xs text-white/75">{locationsLabel}</p>
+                    <p className="text-sm font-semibold text-white">
+                      Ubicaciones
+                    </p>
+                    <p className="text-xs text-white/75">5 sucursales</p>
                   </div>
                 </div>
               </div>
@@ -115,7 +112,7 @@ export default function Hero({
                   <Truck className="h-5 w-5 text-white/85" />
                   <div>
                     <p className="text-sm font-semibold text-white">Servicio</p>
-                    <p className="text-xs text-white/75">{deliveryLabel}</p>
+                    <p className="text-xs text-white/75">Delivery disponible</p>
                   </div>
                 </div>
               </div>

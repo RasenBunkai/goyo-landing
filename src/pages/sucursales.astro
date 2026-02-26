@@ -10,13 +10,7 @@ const description =
 ---
 
 <Layout title={title} description={description} ogImage="/og/og-locations.jpg">
-  <Navbar
-    client:load
-    pathname={Astro.url.pathname}
-    phoneDisplay="998 888 42 97"
-    phoneTel="529988884297"
-    mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
-  />
+<Navbar client:load pathname={Astro.url.pathname} />
   <Locations client:load />
   <Footer client:load />
 </Layout>

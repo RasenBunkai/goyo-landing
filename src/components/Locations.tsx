@@ -94,14 +94,6 @@ export default function Locations() {
 
   return (
     <>
-      {/* Navbar TSX */}
-      <Navbar
-        pathname="/sucursales"
-        phoneDisplay="998 888 42 97"
-        phoneTel="529988884297"
-        mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
-      />
-
       <section id="locations" className="py-20 bg-gray-50 min-h-screen">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           {/* Header */}

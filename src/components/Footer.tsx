@@ -4,10 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
 
-type FooterProps = {
-  brand?: string;
-};
-
 const FOOTER = {
   brand: "Tortas Goyo",
   tagline:
@@ -49,7 +45,7 @@ function mapsLink() {
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
 
-export default function Footer({ brand = FOOTER.brand }: FooterProps) {
+export default function Footer({ brand = FOOTER.brand }) {
   const wa = waLink();
   const maps = mapsLink();
 

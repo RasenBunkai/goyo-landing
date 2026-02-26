@@ -4,10 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Check, HeartHandshake, Trophy, Users, Leaf } from "lucide-react";
-
-type AboutProps = {
-  imageUrl?: string; // imagen en /public, ej: "/images/about.jpg"
-};
+import aboutImg from "@/assets/about/tortagoyo.webp";
 
 const highlights = [
   {
@@ -39,9 +36,7 @@ const checklist = [
   "Sucursales con cobertura de delivery",
 ];
 
-export default function About({
-  imageUrl = "../src/assets/about/tortagoyo.webp",
-}: AboutProps) {
+export default function About() {
   return (
     <section id="about" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
@@ -49,23 +44,23 @@ export default function About({
           <div>
             <Badge
               variant="secondary"
-              className="mb-4 bg-blue-600/10 border-white/10 text-blue-600"
+              className="mb-4 bg-primary/10 border-border text-primary"
             >
               Nuestra historia
             </Badge>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
               Tradición, rapidez y{" "}
-              <span className="text-blue-500">sabor auténtico</span>
+              <span className="text-primary">sabor auténtico</span>
             </h2>
 
-            <p className="mt-5 text-gray-600 leading-relaxed">
+            <p className="mt-5 text-muted-foreground leading-relaxed">
               Desde 1995, Tortas Goyo forma parte del día a día de nuestra
               comunidad. Iniciamos con recetas familiares y el objetivo claro:
               servir comida rica, rápida y consistente, sin sacrificar calidad.
             </p>
 
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               Con el tiempo ampliamos el menú con hamburguesas y bebidas,
               manteniendo el mismo estándar: ingredientes frescos, porciones
               generosas y atención cercana.
@@ -76,10 +71,10 @@ export default function About({
             <ul className="space-y-3">
               {checklist.map((t) => (
                 <li key={t} className="flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-50">
-                    <Check className="h-4 w-4 text-blue-600" />
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent/30">
+                    <Check className="h-4 w-4 text-primary" />
                   </span>
-                  <span className="text-sm text-gray-700">{t}</span>
+                  <span className="text-sm text-foreground">{t}</span>
                 </li>
               ))}
             </ul>
@@ -88,6 +83,7 @@ export default function About({
               <Button asChild size="lg" className="rounded-full">
                 <a href="/sucursales">Ver sucursales</a>
               </Button>
+
               <Button
                 asChild
                 size="lg"
@@ -98,28 +94,32 @@ export default function About({
               </Button>
             </div>
           </div>
+
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl border bg-gray-100">
+            <div className="overflow-hidden rounded-3xl border bg-muted">
               <img
-                src={imageUrl}
+                src={aboutImg.src}
                 alt="Restaurante"
                 className="h-[420px] w-full object-cover"
                 loading="lazy"
               />
             </div>
+
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {highlights.map(({ Icon, title, body }) => (
                 <Card key={title} className="rounded-2xl">
                   <CardContent className="p-5">
                     <div className="flex items-start gap-3">
-                      <div className="rounded-xl bg-blue-50 p-3">
-                        <Icon className="h-5 w-5 text-blue-600" />
+                      <div className="rounded-xl bg-primary/10 p-3">
+                        <Icon className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-sm font-semibold text-foreground">
                           {title}
                         </p>
-                        <p className="mt-1 text-xs text-gray-600">{body}</p>
+                        <p className="mt-1 text-xs text-muted-foreground">
+                          {body}
+                        </p>
                       </div>
                     </div>
                   </CardContent>

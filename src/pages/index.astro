@@ -18,23 +18,10 @@ const description =
   canonical={Astro.url.href}
   ogImage="/og/og-home.jpg"
 >
-  <Navbar
-    client:load
-    pathname={Astro.url.pathname}
-    phoneDisplay="998 888 42 97"
-    phoneTel="529988884297"
-    mapsUrl="https://maps.app.goo.gl/e9rGKopNVDxNjG9N7"
-  />
-  <Hero
-    client:load
-    waPhoneE164="529988884297"
-    hoursLabel="Lun–Dom · 9:00–23:00"
-    deliveryLabel="Delivery en todas las sucursales"
-    locationsLabel="5 sucursales"
-    heroImageUrl="../src/assets/hero/frontside-goyo.png"
-  />
+<Navbar client:load pathname={Astro.url.pathname} />
+  <Hero client:load />
   <Menu client:load />
-  <About client:load imageUrl="../src/assets/about/tortagoyo.webp" />
+  <About client:load/>
   <Contact client:load />
   <Footer client:load />
 </Layout>
