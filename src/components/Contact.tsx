@@ -173,7 +173,7 @@ export default function Contact() {
                   </Button>
                 </div>
 
-                <Separator className="my-5" />
+                <Separator className="my-5 bg-accent/40" />
 
                 <p className="text-xs text-muted-foreground">
                   Sugerencia: Indica sucursal + platillos + cantidad.

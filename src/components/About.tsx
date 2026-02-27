@@ -66,7 +66,7 @@ export default function About() {
               generosas y atención cercana.
             </p>
 
-            <Separator className="my-6" />
+            <Separator className="my-6 bg-accent/40" />
 
             <ul className="space-y-3">
               {checklist.map((t) => (

@@ -196,7 +196,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="my-10 bg-background/10" />
+        <Separator className="my-10 bg-accent/40" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-background/60">

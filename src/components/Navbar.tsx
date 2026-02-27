@@ -42,7 +42,7 @@ export default function Navbar({ pathname }: { pathname: string }) {
     <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         <a href="/" className="flex items-center gap-3">
-          <div className="grid size-9 place-items-center rounded-full bg-primary text-primary-foreground font-bold">
+          <div className="grid size-9 place-items-center rounded-full bg-accent text-accent-foreground font-bold">
             TG
           </div>
           <div className="leading-tight">
@@ -54,14 +54,14 @@ export default function Navbar({ pathname }: { pathname: string }) {
         </a>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           <a
-            className="inline-flex items-center gap-2 hover:text-primary"
+            className="inline-flex items-center gap-2 hover:text-accent"
             href={`tel:${PHONE_TEL}`}
           >
             <Phone className="size-4" />
             {PHONE_DISPLAY}
           </a>
           <a
-            className="inline-flex items-center gap-2 hover:text-primary"
+            className="inline-flex items-center gap-2 hover:text-accent"
             href={MAPS_URL}
             target="_blank"
             rel="noreferrer"
@@ -78,7 +78,7 @@ export default function Navbar({ pathname }: { pathname: string }) {
               className={cx(
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 isActive(item.href)
-                  ? "bg-primary/10 text-primary"
+                  ? "bg-accent/10 text-accent"
                   : "text-foreground hover:bg-accent/40",
               )}
             >
@@ -87,7 +87,8 @@ export default function Navbar({ pathname }: { pathname: string }) {
           ))}
           <Button
             asChild
-            className="ml-2 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground"
+            variant="brand" size="lg"
+            className="ml-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground"
           >
             <a href={waLink} target="_blank" rel="noreferrer">
               <MessageCircle className="mr-2 h-4 w-4" />
@@ -114,7 +115,7 @@ export default function Navbar({ pathname }: { pathname: string }) {
                     className={cx(
                       "rounded-lg px-3 py-2 text-sm font-medium transition-colors mx-4",
                       isActive(item.href)
-                        ? "bg-primary/10 text-primary"
+                        ? "bg-accent/10 text-accent"
                         : "hover:bg-accent/40",
                     )}
                   >
@@ -125,14 +126,14 @@ export default function Navbar({ pathname }: { pathname: string }) {
               <Separator className="my-6" />
               <div className="flex flex-col gap-3 text-sm">
                 <a
-                  className="inline-flex items-center gap-2 hover:text-primary px-4 text-muted-foreground transition-colors mx-4"
+                  className="inline-flex items-center gap-2 hover:text-accent px-4 text-muted-foreground transition-colors mx-4"
                   href={`tel:${PHONE_TEL}`}
                 >
                   <Phone className="size-4" />
                   {PHONE_DISPLAY}
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 hover:text-primary px-4 text-muted-foreground transition-colors mx-4"
+                  className="inline-flex items-center gap-2 hover:text-accent px-4 text-muted-foreground transition-colors mx-4"
                   href={MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
@@ -142,7 +143,7 @@ export default function Navbar({ pathname }: { pathname: string }) {
                 </a>
                 <Button
                   asChild
-                  className="mt-2 rounded-full bg-primary hover:bg-primary/70 text-primary-foreground mx-4 flex items-center justify-center"
+                  className="mt-2 rounded-full bg-accent hover:bg-accent/70 text-accent-foreground mx-4 flex items-center justify-center"
                 >
                   <a href={waLink} target="_blank" rel="noreferrer">
                     <MessageCircle className="mr-2 size-4" />

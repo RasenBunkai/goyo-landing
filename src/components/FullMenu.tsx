@@ -505,7 +505,7 @@ export default function FullMenu() {
           </div>
 
           <TabsContent value={activeCategory} className="my-0">
-            <Separator className="my-10 sm:mb-6" />
+            <Separator className="my-10 sm:mb-6 bg-accent/40" />
 
             {items.length === 0 ? (
               <div className="text-center py-16">
@@ -544,7 +544,7 @@ export default function FullMenu() {
                         </p>
                       </CardContent>
 
-                      <Separator />
+                      <Separator className="bg-accent/40" />
 
                       <CardFooter className="p-5">
                         <Button asChild className="w-full rounded-full">

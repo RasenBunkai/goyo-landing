@@ -195,7 +195,7 @@ export default function Locations() {
                     </div>
                   </div>
 
-                  <Separator className="my-5" />
+                  <Separator className="my-5 bg-accent/40" />
 
                   <div className="space-y-4">
                     {/* Address */}
