@@ -56,9 +56,6 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
 
-    {/* Color UI (opcional) */}
-    <meta name="theme-color" content="#f97316" />
-
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
@@ -79,9 +76,15 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
         },
       })}
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body class="bg-slate-200">
+  <body class="bg-background">
     <slot />
     <ClientRouter />
   </body>

@@ -8,13 +8,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Menu, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Menu, Phone, MapPin } from "lucide-react";
 
 type NavItem = { name: string; href: string };
 
 const BRAND = "Tortas Goyo";
 const PHONE_DISPLAY = "998 888 42 97";
 const PHONE_TEL = "529988884297";
+const SECOND_PHONE_TEL = "529988884669";
 const MAPS_URL = "https://maps.app.goo.gl/e9rGKopNVDxNjG9N7";
 const WA_TEXT_DEFAULT =
   "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?";
@@ -32,7 +33,7 @@ function cx(...classes: Array<string | false | null | undefined>) {
 export default function Navbar({ pathname }: { pathname: string }) {
   const waLink = React.useMemo(() => {
     const text = encodeURIComponent(WA_TEXT_DEFAULT);
-    return `https://wa.me/${PHONE_TEL}?text=${text}`;
+    return `https://wa.me/${SECOND_PHONE_TEL}?text=${text}`;
   }, []);
 
   const isActive = (href: string) =>
@@ -54,14 +55,14 @@ export default function Navbar({ pathname }: { pathname: string }) {
         </a>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           <a
-            className="inline-flex items-center gap-2 hover:text-accent"
+            className="inline-flex items-center gap-2 hover:text-accent-foreground"
             href={`tel:${PHONE_TEL}`}
           >
             <Phone className="size-4" />
             {PHONE_DISPLAY}
           </a>
           <a
-            className="inline-flex items-center gap-2 hover:text-accent"
+            className="inline-flex items-center gap-2 hover:text-accent-foreground"
             href={MAPS_URL}
             target="_blank"
             rel="noreferrer"
@@ -78,8 +79,8 @@ export default function Navbar({ pathname }: { pathname: string }) {
               className={cx(
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 isActive(item.href)
-                  ? "bg-accent/10 text-accent"
-                  : "text-foreground hover:bg-accent/40",
+                  ? "bg-accent/60 text-yellow-600"
+                  : "text-foreground hover:bg-accent/30",
               )}
             >
               {item.name}
@@ -87,12 +88,17 @@ export default function Navbar({ pathname }: { pathname: string }) {
           ))}
           <Button
             asChild
-            variant="brand" size="lg"
-            className="ml-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground"
+            variant="brand"
+            size="lg"
+            className="ml-2 rounded-full bg-accent hover:bg-accent/70 hover:scale-105 text-accent-foreground transition-transform"
           >
-            <a href={waLink} target="_blank" rel="noreferrer">
-              <MessageCircle className="mr-2 h-4 w-4" />
-              WhatsApp
+            <a
+              href={`tel:${SECOND_PHONE_TEL}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Phone className="mr-2 h-4 w-4" />
+              Llama ya
             </a>
           </Button>
         </nav>
@@ -115,8 +121,8 @@ export default function Navbar({ pathname }: { pathname: string }) {
                     className={cx(
                       "rounded-lg px-3 py-2 text-sm font-medium transition-colors mx-4",
                       isActive(item.href)
-                        ? "bg-accent/10 text-accent"
-                        : "hover:bg-accent/40",
+                        ? "bg-accent/60 text-yellow-600"
+                        : "text-foreground hover:bg-accent/30",
                     )}
                   >
                     {item.name}
@@ -126,14 +132,14 @@ export default function Navbar({ pathname }: { pathname: string }) {
               <Separator className="my-6" />
               <div className="flex flex-col gap-3 text-sm">
                 <a
-                  className="inline-flex items-center gap-2 hover:text-accent px-4 text-muted-foreground transition-colors mx-4"
+                  className="inline-flex items-center gap-2 hover:text-accent-foreground px-4 text-muted-foreground transition-colors mx-4"
                   href={`tel:${PHONE_TEL}`}
                 >
                   <Phone className="size-4" />
                   {PHONE_DISPLAY}
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 hover:text-accent px-4 text-muted-foreground transition-colors mx-4"
+                  className="inline-flex items-center gap-2 hover:text-accent-foreground px-4 text-muted-foreground transition-colors mx-4"
                   href={MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
@@ -143,11 +149,17 @@ export default function Navbar({ pathname }: { pathname: string }) {
                 </a>
                 <Button
                   asChild
-                  className="mt-2 rounded-full bg-accent hover:bg-accent/70 text-accent-foreground mx-4 flex items-center justify-center"
+                  variant="brand"
+                  size="lg"
+                  className="m-4 rounded-full bg-accent hover:bg-accent/70 hover:scale-105 text-accent-foreground transition-transform"
                 >
-                  <a href={waLink} target="_blank" rel="noreferrer">
-                    <MessageCircle className="mr-2 size-4" />
-                    Pedir por WhatsApp
+                  <a
+                    href={`tel:${SECOND_PHONE_TEL}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Phone className="mr-2 size-4" />
+                    Llama ya
                   </a>
                 </Button>
               </div>

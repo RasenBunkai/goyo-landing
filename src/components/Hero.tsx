@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, MapPin, Truck, MessageCircle } from "lucide-react";
+import { Clock, MapPin, Truck } from "lucide-react";
+import { WhatsApp } from "./ui/whatsapp";
 import heroImg from "@/assets/hero/frontside-goyo.png";
 const WA_PHONE = "529988884297";
 
@@ -32,25 +33,25 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-2">
               <Badge
                 variant="secondary"
-                className="bg-primary/10 text-white border-white/10"
+                className="bg-accent/10 text-white border-white/10"
               >
                 Desde 1995
               </Badge>
               <Badge
                 variant="secondary"
-                className="bg-primary/10 text-white border-white/10"
+                className="bg-accent/10 text-white border-white/10"
               >
                 Ingredientes frescos
               </Badge>
               <Badge
                 variant="secondary"
-                className="bg-primary/10 text-white border-white/10"
+                className="bg-accent/10 text-white border-white/10"
               >
                 Atención rápida
               </Badge>
             </div>
             <div className="mt-6 max-w-3xl">
-              <h1 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
                 Tortas Goyo
               </h1>
               <p className="mt-4 text-pretty text-lg text-white/85 sm:text-xl">
@@ -66,10 +67,10 @@ export default function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-primary hover:bg-primary/90"
+                className="rounded-full bg-green-600 hover:bg-green-700 transition-colors hover:shadow-lg"
               >
                 <a href={waLink} target="_blank" rel="noreferrer">
-                  <MessageCircle className="mr-2 h-5 w-5" />
+                  <WhatsApp className="mr-2 size-5" />
                   Pedir por WhatsApp
                 </a>
               </Button>
@@ -77,7 +78,7 @@ export default function Hero() {
                 asChild
                 size="lg"
                 variant="secondary"
-                className="rounded-full bg-white/10 text-white hover:bg-white/15"
+                className="rounded-full bg-accent/10 text-white hover:bg-accent/20 border-white/10"
               >
                 <a href="/menu">Ver menú</a>
               </Button>

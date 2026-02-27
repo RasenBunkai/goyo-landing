@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { MessageCircle } from "lucide-react";
+import { WhatsApp } from "@/components/ui/whatsapp";
 
 const WA_PHONE = "525500000000";
 
@@ -124,7 +125,7 @@ export default function Menu() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="mr-2 h-4 w-4" />
+                    <WhatsApp className="mr-2 size-4" />
                     Pedir por WhatsApp
                   </a>
                 </Button>

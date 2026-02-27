@@ -18,10 +18,10 @@ const description =
   canonical={Astro.url.href}
   ogImage="/og/og-home.jpg"
 >
-<Navbar client:load pathname={Astro.url.pathname} />
+  <Navbar client:load pathname={Astro.url.pathname} />
   <Hero client:load />
   <Menu client:load />
-  <About client:load/>
+  <About client:load />
   <Contact client:load />
   <Footer client:load />
 </Layout>

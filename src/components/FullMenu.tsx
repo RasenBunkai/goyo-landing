@@ -465,7 +465,7 @@ export default function FullMenu() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Buscar en el menú..."
-              className="pl-9 rounded-full"
+              className="pl-9 rounded-full border border-border bg-background focus:ring-2 focus:ring-primary/50"
             />
           </div>
         </div>
@@ -532,9 +532,9 @@ export default function FullMenu() {
                     >
                       <CardContent className="p-5">
                         <div className="flex items-start justify-between gap-3">
-                          <h3 className="text-base font-semibold leading-tight text-foreground">
+                          <p className="text-base font-semibold leading-tight text-foreground">
                             {item.name}
-                          </h3>
+                          </p>
                           <span className="text-xl font-bold text-primary whitespace-nowrap">
                             ${item.price}
                           </span>
