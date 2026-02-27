@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="absolute inset-0 [background:radial-gradient(60%_50%_at_50%_20%,rgba(255,255,255,0.14),transparent_60%)]" />
       </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="flex min-h-[calc(100vh-4rem)] items-center py-16 sm:py-20">
+        <div className="flex min-h-screen items-center py-16 sm:py-20">
           <div className="w-full">
             <div className="flex flex-wrap items-center gap-2">
               <Badge

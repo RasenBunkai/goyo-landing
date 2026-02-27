@@ -40,7 +40,7 @@ export default function Navbar({ pathname }: { pathname: string }) {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10">
         <a href="/" className="flex items-center gap-3">
           <div className="grid size-9 place-items-center rounded-full bg-accent text-accent-foreground font-bold">

@@ -2,8 +2,6 @@ import * as React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { MessageCircle } from "lucide-react";
 import { WhatsApp } from "@/components/ui/whatsapp";
 
 const WA_PHONE = "525500000000";
@@ -74,7 +72,7 @@ export default function Menu() {
     <section id="menu" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground">
+          <h2 className="text-5xl font-bold text-foreground">
             Favoritos de <span className="text-primary">Tortas Goyo</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -82,54 +80,70 @@ export default function Menu() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {favorites.map((item) => (
-            <Card key={item.id} className="overflow-hidden rounded-2xl">
+            <Card
+              key={item.id}
+              className="
+        group h-full overflow-hidden rounded-2xl
+        border border-border/60 bg-card
+        transition-all duration-200
+        hover:-translate-y-0.5 hover:shadow-md hover:border-border
+      "
+            >
+              {/* Media */}
               <div className="relative">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-52 object-cover"
-                  loading="lazy"
-                />
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
 
                 {item.popular && (
-                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                  <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground shadow-sm">
                     Popular
                   </Badge>
                 )}
+
+                {/* Gradiente sutil para legibilidad */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/70 to-transparent" />
               </div>
 
-              <CardContent className="p-5">
-                <div className="flex justify-between items-start mb-2 gap-3">
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {item.name}
-                  </h3>
+              {/* Body */}
+              <div className="flex h-full flex-col">
+                <CardContent className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-base font-semibold leading-tight text-foreground">
+                      {item.name}
+                    </h3>
 
-                  <span className="text-xl font-bold text-primary whitespace-nowrap">
-                    ${item.price}
-                  </span>
-                </div>
+                    <span className="text-lg font-bold text-primary whitespace-nowrap">
+                      ${item.price}
+                    </span>
+                  </div>
 
-                <p className="text-sm text-muted-foreground">
-                  {item.description}
-                </p>
-              </CardContent>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                    {item.description}
+                  </p>
+                </CardContent>
 
-              <Separator />
-
-              <CardFooter className="p-5">
-                <Button asChild className="w-full rounded-full">
-                  <a
-                    href={buildWhatsAppLink(item)}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <WhatsApp className="mr-2 size-4" />
-                    Pedir por WhatsApp
-                  </a>
-                </Button>
-              </CardFooter>
+                {/* Footer pegado abajo */}
+                <CardFooter className="mt-auto p-5 pt-0">
+                  <Button asChild className="w-full rounded-full">
+                    <a
+                      href={buildWhatsAppLink(item)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <WhatsApp className="mr-2 size-4" />
+                      Pedir por WhatsApp
+                    </a>
+                  </Button>
+                </CardFooter>
+              </div>
             </Card>
           ))}
         </div>
