@@ -72,7 +72,7 @@ export default function Menu() {
     <section id="menu" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-foreground">
+          <h2 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
             Favoritos de <span className="text-primary">Tortas Goyo</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -84,14 +84,8 @@ export default function Menu() {
           {favorites.map((item) => (
             <Card
               key={item.id}
-              className="
-        group h-full overflow-hidden rounded-2xl
-        border border-border/60 bg-card
-        transition-all duration-200
-        hover:-translate-y-0.5 hover:shadow-md hover:border-border
-      "
+              className="group h-full overflow-hidden rounded-2xl border border-border/60 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border"
             >
-              {/* Media */}
               <div className="relative">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
                   <img
@@ -101,14 +95,11 @@ export default function Menu() {
                     loading="lazy"
                   />
                 </div>
-
                 {item.popular && (
-                  <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground shadow-sm">
+                  <Badge className="absolute left-3 top-3 bg-accent text-primary-foreground shadow-sm">
                     Popular
                   </Badge>
                 )}
-
-                {/* Gradiente sutil para legibilidad */}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/70 to-transparent" />
               </div>
 
@@ -119,8 +110,7 @@ export default function Menu() {
                     <h3 className="text-base font-semibold leading-tight text-foreground">
                       {item.name}
                     </h3>
-
-                    <span className="text-lg font-bold text-primary whitespace-nowrap">
+                    <span className="text-lg font-bold text-accent whitespace-nowrap">
                       ${item.price}
                     </span>
                   </div>
@@ -129,10 +119,8 @@ export default function Menu() {
                     {item.description}
                   </p>
                 </CardContent>
-
-                {/* Footer pegado abajo */}
                 <CardFooter className="mt-auto p-5 pt-0">
-                  <Button asChild className="w-full rounded-full">
+                  <Button asChild className="w-full rounded-full bg-green-600 hover:bg-green-700 transition-colors hover:shadow-lg">
                     <a
                       href={buildWhatsAppLink(item)}
                       target="_blank"
@@ -147,8 +135,6 @@ export default function Menu() {
             </Card>
           ))}
         </div>
-
-        {/* CTA final */}
         <div className="mt-12 text-center">
           <Button asChild size="lg" variant="outline" className="rounded-full">
             <a href="/menu">Ver menú completo</a>

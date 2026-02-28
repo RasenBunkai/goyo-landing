@@ -35,7 +35,7 @@ export default function Contact() {
     <section id="contact" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide text-foreground">
             <span className="text-primary">Contáctanos</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">

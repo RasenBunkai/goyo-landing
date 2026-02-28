@@ -51,7 +51,7 @@ export default function Hero() {
               </Badge>
             </div>
             <div className="mt-6 max-w-3xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-wide text-white">
+              <h1 className="text-5xl sm:text-7xl lg:text-9xl tracking-wide text-white">
                 Tortas Goyo
               </h1>
               <p className="mt-4 text-pretty text-lg text-white/85 sm:text-xl">
@@ -78,7 +78,7 @@ export default function Hero() {
                 asChild
                 size="lg"
                 variant="secondary"
-                className="rounded-full bg-accent/10 text-white hover:bg-accent/20 border-white/10"
+                className="rounded-full bg-accent/80 text-white hover:bg-accent/60 border-white/30"
               >
                 <a href="/menu">Ver menú</a>
               </Button>

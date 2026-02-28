@@ -49,7 +49,7 @@ export default function About() {
               Nuestra historia
             </Badge>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+            <h2 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
               Tradición, rapidez y{" "}
               <span className="text-primary">sabor auténtico</span>
             </h2>
@@ -72,13 +72,12 @@ export default function About() {
               {checklist.map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent/30">
-                    <Check className="h-4 w-4 text-primary" />
+                    <Check className="h-4 w-4 text-yellow-700" />
                   </span>
                   <span className="text-sm text-foreground">{t}</span>
                 </li>
               ))}
             </ul>
-
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="rounded-full">
                 <a href="/sucursales">Ver sucursales</a>
@@ -110,8 +109,8 @@ export default function About() {
                 <Card key={title} className="rounded-2xl">
                   <CardContent className="p-5">
                     <div className="flex items-start gap-3">
-                      <div className="rounded-xl bg-primary/10 p-3">
-                        <Icon className="h-5 w-5 text-primary" />
+                      <div className="rounded-xl bg-accent/10 p-3">
+                        <Icon className="h-5 w-5 text-accent" />
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-foreground">
