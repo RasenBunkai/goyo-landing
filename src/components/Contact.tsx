@@ -50,8 +50,8 @@ export default function Contact() {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-primary/10 p-3">
-                    <Phone className="h-5 w-5 text-primary" />
+                  <div className="rounded-xl bg-accent/20 p-3">
+                    <Phone className="h-5 w-5 text-accent" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">
@@ -69,14 +69,14 @@ export default function Contact() {
                         >
                           <a
                             href={`tel:${CONTACT.phonesTel[idx]}`}
-                            className="text-sm font-medium text-foreground hover:text-primary"
+                            className="text-sm font-medium text-foreground hover:text-accent"
                           >
                             {label}
                           </a>
                           <Button
                             asChild
                             variant="outline"
-                            className="rounded-full w-fit"
+                            className="rounded-full w-fit hover:text-yellow-700"
                           >
                             <a href={`tel:${CONTACT.phonesTel[idx]}`}>Llamar</a>
                           </Button>
@@ -92,8 +92,8 @@ export default function Contact() {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-primary/10 p-3">
-                    <Clock className="h-5 w-5 text-primary" />
+                  <div className="rounded-xl bg-accent/20 p-3">
+                    <Clock className="h-5 w-5 text-accent" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">
@@ -119,8 +119,8 @@ export default function Contact() {
             <Card className="rounded-2xl">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-primary/10 p-3">
-                    <MapPin className="h-5 w-5 text-primary" />
+                  <div className="rounded-xl bg-accent/20 p-3">
+                    <MapPin className="h-5 w-5 text-accent" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-foreground">
@@ -131,9 +131,9 @@ export default function Contact() {
                     </p>
 
                     <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                      <Button asChild className="rounded-full">
+                      <Button asChild className="rounded-full bg-accent hover:bg-yellow-600">
                         <a href={maps} target="_blank" rel="noreferrer">
-                          <Navigation className="mr-2 h-4 w-4" />
+                          <Navigation className="mr-2 size-4" />
                           Abrir en Maps
                         </a>
                       </Button>
@@ -150,36 +150,6 @@ export default function Contact() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* WhatsApp */}
-            <Card className="rounded-2xl border border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      Pedidos por WhatsApp
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Envíanos tu pedido y te confirmamos disponibilidad y
-                      total.
-                    </p>
-                  </div>
-
-                  <Button asChild size="lg" className="rounded-full">
-                    <a href={wa} target="_blank" rel="noreferrer">
-                      <MessageCircle className="mr-2 h-5 w-5" />
-                      WhatsApp
-                    </a>
-                  </Button>
-                </div>
-
-                <Separator className="my-5 bg-accent/40" />
-
-                <p className="text-xs text-muted-foreground">
-                  Sugerencia: Indica sucursal + platillos + cantidad.
-                </p>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Right column */}
@@ -190,37 +160,11 @@ export default function Contact() {
                 <div className="aspect-[16/10] bg-muted">
                   <iframe
                     src={MAPS_EMBED_SRC}
-                    className="h-full w-full"
+                    className="h-full w-full rounded-lg"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Mapa"
                   />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Help card */}
-            <Card className="rounded-2xl">
-              <CardContent className="p-6">
-                <p className="text-sm font-semibold text-foreground">
-                  ¿Necesitas ayuda con tu pedido?
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  También puedes escribirnos: “Quiero X tortas + Y bebidas” y te
-                  respondemos con el total.
-                </p>
-
-                <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                  <Button asChild className="rounded-full">
-                    <a href={wa} target="_blank" rel="noreferrer">
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      Escribir por WhatsApp
-                    </a>
-                  </Button>
-
-                  <Button asChild variant="outline" className="rounded-full">
-                    <a href="/menu">Ver menú</a>
-                  </Button>
                 </div>
               </CardContent>
             </Card>
