@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { MessageCircle, Search } from "lucide-react";
+import { Phone, Search } from "lucide-react";
 
 import {
   WA_PHONE,
@@ -52,7 +52,7 @@ export default function FullMenu() {
     <section id="full-menu" className="bg-muted/30 py-20 min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h1 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
             Menú <span className="text-primary">Completo</span>
           </h1>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -75,8 +75,8 @@ export default function FullMenu() {
                       {p.description}
                     </p>
                   </div>
-                  <div className="rounded-xl bg-primary/10 p-3">
-                    <p.Icon className="h-5 w-5 text-primary" />
+                  <div className="rounded-xl bg-accent/20 p-3">
+                    <p.Icon className="h-5 w-5 text-accent" />
                   </div>
                 </div>
               </CardContent>
@@ -109,8 +109,8 @@ export default function FullMenu() {
                     key={cat.id}
                     value={cat.id}
                     className="rounded-full border border-border bg-background px-4 py-2
-                      data-[state=active]:bg-primary data-[state=active]:text-primary-foreground
-                      data-[state=active]:border-primary"
+                      data-[state=active]:bg-accent data-[state=active]:text-accent-foreground
+                      data-[state=active]:border-accent hover:bg-accent/50 hover:text-accent-foreground hover:cursor-pointer transition-colors"
                   >
                     <ActiveIcon className="mr-2 size-4" />
                     {cat.name}
@@ -140,18 +140,12 @@ export default function FullMenu() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {items.map((item, idx) => {
-                  const wa = buildWhatsAppLink({
-                    categoryName: activeCategoryName,
-                    item,
-                  });
                   const hero = categoryImages[activeCategory];
-
                   return (
                     <Card
                       key={`${activeCategory}-${idx}`}
                       className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      {/* Imagen por categoría */}
                       <div className="relative">
                         <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
                           <img
@@ -159,39 +153,23 @@ export default function FullMenu() {
                             alt={hero.alt}
                             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                             loading="lazy"
+                            draggable={false}
                           />
                         </div>
-
-                        {/* overlay sutil para identidad */}
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-
-                        {/* precio destacado */}
-                        <div className="absolute right-3 top-3">
-                          <div className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground shadow-sm">
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        <div className="absolute right-3 bottom-3">
+                          <div className="rounded-full bg-accent px-3 py-1 text-sm font-semibold text-yellow-900 shadow-sm">
                             ${item.price}
                           </div>
                         </div>
                       </div>
-
-                      {/* Contenido */}
-                      <CardContent className="p-5">
-                        <p className="text-base font-semibold leading-tight text-foreground line-clamp-2">
+                      <CardContent className="pb-5 px-5">
+                        <p className="text-lg font-semibold leading-tight text-foreground line-clamp-2">
                           {item.name}
                         </p>
-
                         <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
                           {item.description}
                         </p>
-
-                        {/* (opcional) acción inline sin footer */}
-                        <div className="mt-4">
-                          <Button asChild className="w-full rounded-full">
-                            <a href={wa} target="_blank" rel="noreferrer">
-                              <MessageCircle className="mr-2 h-4 w-4" />
-                              Pedir por WhatsApp
-                            </a>
-                          </Button>
-                        </div>
                       </CardContent>
                     </Card>
                   );
@@ -204,19 +182,17 @@ export default function FullMenu() {
                   ¿Listo para ordenar?
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Escríbenos por WhatsApp y te atendemos rápido.
+                  Llamanos y te atendemos rápido.
                 </p>
                 <div className="mt-6 flex justify-center">
-                  <Button asChild size="lg" className="rounded-full">
+                  <Button asChild size="lg" className="rounded-full bg-accent hover:bg-accent-dark transition-colors hover:shadow-lg">
                     <a
-                      href={`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(
-                        "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?",
-                      )}`}
+                      href="tel:520000000"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <MessageCircle className="mr-2 size-5" />
-                      Abrir WhatsApp
+                      <Phone className="mr-2 size-5" />
+                      Llamar ahora
                     </a>
                   </Button>
                 </div>
