@@ -12,6 +12,7 @@ import {
   categories,
   promos,
   menuData,
+  categoryImages,
   type CategoryId,
   type MenuItem,
 } from "@/data/menu";
@@ -143,23 +144,54 @@ export default function FullMenu() {
                     categoryName: activeCategoryName,
                     item,
                   });
+                  const hero = categoryImages[activeCategory];
+
                   return (
                     <Card
                       key={`${activeCategory}-${idx}`}
-                      className="rounded-2xl"
+                      className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      <CardContent className="p-5">
-                        <div className="flex items-start justify-between gap-3">
-                          <p className="text-base font-semibold leading-tight text-foreground">
-                            {item.name}
-                          </p>
-                          <span className="text-xl font-bold text-primary whitespace-nowrap">
-                            ${item.price}
-                          </span>
+                      {/* Imagen por categoría */}
+                      <div className="relative">
+                        <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                          <img
+                            src={hero.src}
+                            alt={hero.alt}
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                            loading="lazy"
+                          />
                         </div>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+
+                        {/* overlay sutil para identidad */}
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+                        {/* precio destacado */}
+                        <div className="absolute right-3 top-3">
+                          <div className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground shadow-sm">
+                            ${item.price}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Contenido */}
+                      <CardContent className="p-5">
+                        <p className="text-base font-semibold leading-tight text-foreground line-clamp-2">
+                          {item.name}
+                        </p>
+
+                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
                           {item.description}
                         </p>
+
+                        {/* (opcional) acción inline sin footer */}
+                        <div className="mt-4">
+                          <Button asChild className="w-full rounded-full">
+                            <a href={wa} target="_blank" rel="noreferrer">
+                              <MessageCircle className="mr-2 h-4 w-4" />
+                              Pedir por WhatsApp
+                            </a>
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   );
