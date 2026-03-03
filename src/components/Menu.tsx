@@ -13,8 +13,7 @@ const favorites = [
     description: "Pierna, jamón y queso Oaxaca.",
     price: 100,
     popular: true,
-    image:
-      "https://images.pexels.com/photos/6896379/pexels-photo-6896379.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/menu/TortasSencillas.png",
   },
   {
     id: "torta-cubana",
@@ -22,8 +21,7 @@ const favorites = [
     description: "Pierna, jamón, bistec y chorizo.",
     price: 115,
     popular: true,
-    image:
-      "https://images.pexels.com/photos/5419336/pexels-photo-5419336.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/menu/TortasEspeciales.png",
   },
   {
     id: "hamburguesa-goyo",
@@ -31,45 +29,21 @@ const favorites = [
     description: "Carne, queso americano y papas.",
     price: 75,
     popular: true,
-    image:
-      "https://images.pexels.com/photos/1556909/pexels-photo-1556909.jpeg?auto=compress&cs=tinysrgb&w=800",
-  },
-  {
-    id: "papas-queso",
-    name: "PAPAS CON QUESO",
-    description: "Papas fritas con queso amarillo.",
-    price: 100,
-    image:
-      "https://images.pexels.com/photos/1893566/pexels-photo-1893566.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "src/assets/menu/Hamburguesa.png",
   },
   {
     id: "agua-horchata",
     name: "HORCHATA",
     description: "Agua fresca tradicional.",
     price: 50,
-    image:
-      "https://images.pexels.com/photos/6542654/pexels-photo-6542654.jpeg?auto=compress&cs=tinysrgb&w=800",
-  },
-  {
-    id: "licuado-fresa",
-    name: "LICUADO DE FRESA",
-    description: "Fresa natural con leche.",
-    price: 80,
-    image:
-      "https://images.pexels.com/photos/4958792/pexels-photo-4958792.jpeg?auto=compress&cs=tinysrgb&w=800",
+    popular: true,
+    image: "src/assets/menu/Aguas.png",
   },
 ];
 
-function buildWhatsAppLink(item: { name: string; price: number }) {
-  const text = encodeURIComponent(
-    `Hola, quiero pedir:\n- 1x ${item.name} ($${item.price})\n¿Está disponible?`,
-  );
-  return `https://wa.me/${WA_PHONE}?text=${text}`;
-}
-
 export default function Menu() {
   return (
-    <section id="menu" className="py-20">
+    <section id="menu" className="pt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12">
           <h2 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
@@ -79,7 +53,6 @@ export default function Menu() {
             Los platillos más pedidos por nuestros clientes.
           </p>
         </div>
-
         <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {favorites.map((item) => (
             <Card
@@ -96,21 +69,19 @@ export default function Menu() {
                   />
                 </div>
                 {item.popular && (
-                  <Badge className="absolute left-3 top-3 bg-accent text-primary-foreground shadow-sm">
+                  <Badge className="absolute left-3 top-3 bg-yellow-600 text-primary-foreground shadow-sm">
                     Popular
                   </Badge>
                 )}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/70 to-transparent" />
               </div>
-
-              {/* Body */}
               <div className="flex h-full flex-col">
-                <CardContent className="p-5">
+                <CardContent className="pt-0 pb-5 px-5">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-base font-semibold leading-tight text-foreground">
+                    <h3 className="text-lg font-semibold leading-tight text-foreground">
                       {item.name}
                     </h3>
-                    <span className="text-lg font-bold text-accent whitespace-nowrap">
+                    <span className="text-xl font-bold text-accent whitespace-nowrap">
                       ${item.price}
                     </span>
                   </div>
@@ -119,24 +90,17 @@ export default function Menu() {
                     {item.description}
                   </p>
                 </CardContent>
-                <CardFooter className="mt-auto p-5 pt-0">
-                  <Button asChild className="w-full rounded-full bg-green-600 hover:bg-green-700 transition-colors hover:shadow-lg">
-                    <a
-                      href={buildWhatsAppLink(item)}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <WhatsApp className="mr-2 size-4" />
-                      Pedir por WhatsApp
-                    </a>
-                  </Button>
-                </CardFooter>
               </div>
             </Card>
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Button asChild size="lg" variant="outline" className="rounded-full">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="rounded-full px-8 py-3 text-lg font-medium duration-200 hover:bg-primary hover:text-white hover:scale-105 text-accent-foreground transition-all"
+          >
             <a href="/menu">Ver menú completo</a>
           </Button>
         </div>

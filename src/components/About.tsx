@@ -101,6 +101,7 @@ export default function About() {
                 alt="Restaurante"
                 className="h-[420px] w-full object-cover"
                 loading="lazy"
+                draggable={false}
               />
             </div>
 

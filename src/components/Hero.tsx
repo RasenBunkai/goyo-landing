@@ -1,18 +1,10 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, MapPin, Truck } from "lucide-react";
-import { WhatsApp } from "./ui/whatsapp";
+import { Clock, MapPin, Truck,Phone } from "lucide-react";
 import heroImg from "@/assets/hero/frontside-goyo.png";
-const WA_PHONE = "529988884297";
 
 export default function Hero() {
-  const waLink = React.useMemo(() => {
-    const text = encodeURIComponent(
-      "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?",
-    );
-    return `https://wa.me/${WA_PHONE}?text=${text}`;
-  }, []);
 
   return (
     <section className="relative isolate">
@@ -67,18 +59,18 @@ export default function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-green-600 hover:bg-green-700 transition-colors hover:shadow-lg"
+                className="rounded-full bg-primary hover:bg-blue-700 hover:shadow-lg transition-colors duration-300 border-white/30"
               >
-                <a href={waLink} target="_blank" rel="noreferrer">
-                  <WhatsApp className="mr-2 size-5" />
-                  Pedir por WhatsApp
+                <a href="tel:+529982526854">
+                  <Phone className="mr-2 size-5" />
+                  Llamar ahora
                 </a>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="secondary"
-                className="rounded-full bg-accent/80 text-white hover:bg-accent/60 border-white/30"
+                className="rounded-full bg-accent/80 text-white hover:bg-yellow-700 hover:shadow-lg transition-colors duration-300 border-white/30"
               >
                 <a href="/menu">Ver menú</a>
               </Button>
