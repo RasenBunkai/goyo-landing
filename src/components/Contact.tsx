@@ -5,22 +5,17 @@ import { Separator } from "@/components/ui/separator";
 import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
 
 const CONTACT = {
-  phonesDisplay: ["(55) 0000 0000", "(55) 1111 1111"],
-  phonesTel: ["5500000000", "5511111111"],
-  waPhoneE164: "525500000000",
-  waText: "Hola, quiero hacer un pedido. ¿Me compartes el menú y horarios?",
-  address: "Av. Principal 123, Colonia Centro, Ciudad",
-  mapsQuery: "Av. Principal 123, Colonia Centro, Ciudad",
+  phonesDisplay: ["998 888 42 97", "998 888 46 69", "998 252 68 54"],
+  phonesTel: ["9988884297", "9988884669", "9982526854"],
+  address: "Av. Francisco y Madero Smza70 Mza 7 Lote 19",
+  mapsQuery:
+    "Tortas Goyo Av. Francisco I. Madero Supermanzana 70, 77535 Cancún, Q.R.",
   hours: ["Lun – Dom: 9:00 AM – 11:00 PM", "Delivery hasta 10:30 PM"],
 };
 
 const MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.512226247525!2d-86.8384021!3d21.1718014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b6dc83396e7%3A0xa9079afb45113ce7!2sTortas%20Goyo!5e0!3m2!1ses-419!2smx!4v1770098783242!5m2!1ses-419!2smx";
 
-function buildWhatsAppLink() {
-  const text = encodeURIComponent(CONTACT.waText);
-  return `https://wa.me/${CONTACT.waPhoneE164}?text=${text}`;
-}
 
 function buildMapsLink() {
   const q = encodeURIComponent(CONTACT.mapsQuery);
@@ -28,7 +23,6 @@ function buildMapsLink() {
 }
 
 export default function Contact() {
-  const wa = buildWhatsAppLink();
   const maps = buildMapsLink();
 
   return (
@@ -58,7 +52,7 @@ export default function Contact() {
                       Teléfono
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Llámanos para pedidos rápidos.
+                      Contáctanos por teléfono para hacer tu pedido o resolver tus dudas.
                     </p>
 
                     <div className="mt-4 flex flex-col gap-2">

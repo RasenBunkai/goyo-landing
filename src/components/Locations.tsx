@@ -96,11 +96,7 @@ export default function Locations() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            Sucursales
-          </Badge>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h1 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
             Nuestras <span className="text-primary">Sucursales</span>
           </h1>
 

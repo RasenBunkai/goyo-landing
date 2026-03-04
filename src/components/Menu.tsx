@@ -70,6 +70,7 @@ export default function Menu() {
                     alt={item.name}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     loading="lazy"
+                    draggable="false"
                   />
                 </div>
                 {item.popular && (

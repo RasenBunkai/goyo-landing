@@ -11,15 +11,12 @@ const FOOTER = {
     "Comida rápida con sabor auténtico. Ingredientes frescos y porciones generosas.",
   year: new Date().getFullYear(),
 
-  phonesDisplay: ["(55) 0000 0000", "(55) 1111 1111"],
-  phonesTel: ["5500000000", "5511111111"],
+  phonesDisplay: ["998 888 42 97", "998 888 46 69", "998 252 68 54"],
+  phonesTel: ["9988884297", "9988884669", "9982526854"],
 
-  waPhoneE164: "525500000000",
-  waText:
-    "Hola, quiero hacer un pedido. ¿Me ayudas con disponibilidad y total?",
-
-  address: "Av. Principal 123, Colonia Centro, Ciudad",
-  mapsQuery: "Av. Principal 123, Colonia Centro, Ciudad",
+  address: "Av. Francisco y Madero Smza70 Mza 7 Lote 19",
+  mapsQuery:
+    "Tortas Goyo Av. Francisco I. Madero Supermanzana 70, 77535 Cancún, Q.R.",
 
   hours: "Lun – Dom: 9:00 AM – 11:00 PM",
 
@@ -36,10 +33,6 @@ const FOOTER = {
   ],
 };
 
-function waLink() {
-  const text = encodeURIComponent(FOOTER.waText);
-  return `https://wa.me/${FOOTER.waPhoneE164}?text=${text}`;
-}
 
 function mapsLink() {
   const q = encodeURIComponent(FOOTER.mapsQuery);
@@ -47,7 +40,6 @@ function mapsLink() {
 }
 
 export default function Footer() {
-  const wa = waLink();
   const maps = mapsLink();
 
   return (
@@ -104,21 +96,11 @@ export default function Footer() {
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button
                 asChild
-                className="rounded-full bg-green-600 hover:bg-green-700"
-              >
-                <a href={wa} target="_blank" rel="noreferrer">
-                  <WhatsApp className="mr-2 size-4" />
-                  WhatsApp
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                className="bg-accent hover:bg-yellow-500 rounded-full border-background/20 text-background"
+                className="bg-accent hover:bg-yellow-500 hover:cursor-pointer rounded-full border-background/20 text-background"
               >
                 <a href={maps} target="_blank" rel="noreferrer">
                   <MapPin className="mr-2 h-4 w-4" />
-                  Maps
+                  Abrir en Maps
                 </a>
               </Button>
             </div>

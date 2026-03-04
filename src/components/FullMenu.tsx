@@ -21,13 +21,6 @@ function normalize(str: string) {
   return str.toLowerCase().trim();
 }
 
-function buildWhatsAppLink(payload: { categoryName: string; item: MenuItem }) {
-  const text = encodeURIComponent(
-    `Hola, quiero hacer un pedido:\n- 1x ${payload.item.name} ($${payload.item.price})\nCategoría: ${payload.categoryName}\n¿Está disponible?`,
-  );
-  return `https://wa.me/${WA_PHONE}?text=${text}`;
-}
-
 export default function FullMenu() {
   const [activeCategory, setActiveCategory] =
     React.useState<CategoryId>("hamburguesas");
@@ -129,7 +122,9 @@ export default function FullMenu() {
             <Separator className="my-10 sm:mb-6 bg-accent/40" />
             {items.length === 0 ? (
               <div className="text-center py-16">
-                <div className="text-5xl mb-4">🔎</div>
+                <div className="text-7xl mb-4 flex items-center justify-center">
+                  <Search className="text-muted-foreground" />
+                </div>
                 <h3 className="text-xl font-semibold text-foreground">
                   No se encontraron resultados
                 </h3>
@@ -185,9 +180,13 @@ export default function FullMenu() {
                   Llamanos y te atendemos rápido.
                 </p>
                 <div className="mt-6 flex justify-center">
-                  <Button asChild size="lg" className="rounded-full bg-accent hover:bg-accent-dark transition-colors hover:shadow-lg">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full bg-accent hover:bg-accent-dark transition-colors hover:shadow-lg"
+                  >
                     <a
-                      href="tel:520000000"
+                      href="tel:9988884297"
                       target="_blank"
                       rel="noreferrer"
                     >
