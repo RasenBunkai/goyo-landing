@@ -3,6 +3,10 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { WhatsApp } from "@/components/ui/whatsapp";
+import tortasSencillasImg from "@/assets/menu/TortasSencillas.png";
+import tortasEspecialesImg from "@/assets/menu/TortasEspeciales.png";
+import hamburguesaImg from "@/assets/menu/Hamburguesa.png";
+import aguasImg from "@/assets/menu/Aguas.png";
 
 const WA_PHONE = "525500000000";
 
@@ -13,7 +17,7 @@ const favorites = [
     description: "Pierna, jamón y queso Oaxaca.",
     price: 100,
     popular: true,
-    image: "src/assets/menu/TortasSencillas.png",
+    image: tortasSencillasImg,
   },
   {
     id: "torta-cubana",
@@ -21,7 +25,7 @@ const favorites = [
     description: "Pierna, jamón, bistec y chorizo.",
     price: 115,
     popular: true,
-    image: "src/assets/menu/TortasEspeciales.png",
+    image: tortasEspecialesImg,
   },
   {
     id: "hamburguesa-goyo",
@@ -29,7 +33,7 @@ const favorites = [
     description: "Carne, queso americano y papas.",
     price: 75,
     popular: true,
-    image: "src/assets/menu/Hamburguesa.png",
+    image: hamburguesaImg,
   },
   {
     id: "agua-horchata",
@@ -37,7 +41,7 @@ const favorites = [
     description: "Agua fresca tradicional.",
     price: 50,
     popular: true,
-    image: "src/assets/menu/Aguas.png",
+    image: aguasImg,
   },
 ];
 
@@ -62,7 +66,7 @@ export default function Menu() {
               <div className="relative">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
                   <img
-                    src={item.image}
+                    src={item.image.src}
                     alt={item.name}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     loading="lazy"

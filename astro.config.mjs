@@ -6,10 +6,10 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tudominio.com",
+  site: "https://goyo-landing.vercel.app",
   vite: {
     plugins: [tailwindcss()],
   },
 
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 });
