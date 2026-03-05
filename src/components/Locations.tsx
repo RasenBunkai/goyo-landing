@@ -22,8 +22,6 @@ type Location = {
   mapsQuery: string;
 };
 
-const WA_PHONE = "525500000000";
-
 const locations: Location[] = [
   {
     id: 1,
@@ -77,13 +75,6 @@ function telHref(phone: string) {
 function mapsHref(query: string) {
   const q = encodeURIComponent(query);
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
-}
-
-function waHref(locationName: string) {
-  const text = encodeURIComponent(
-    `Hola, quiero hacer un pedido.\nSucursal: ${locationName}\n¿Me apoyas con disponibilidad y tiempos?`,
-  );
-  return `https://wa.me/${WA_PHONE}?text=${text}`;
 }
 
 export default function Locations() {
@@ -156,18 +147,22 @@ export default function Locations() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {locations.map((loc) => {
             const maps = mapsHref(loc.mapsQuery);
-            const wa = waHref(loc.name);
 
             return (
               <Card
                 key={loc.id}
-                className={`rounded-2xl overflow-hidden ${loc.isMain ? "border-primary/20" : ""}`}
+                className={[
+                  "group relative overflow-hidden rounded-2xl border border-border/60 bg-background",
+                  "transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border",
+                  loc.isMain ? "ring-1 ring-primary/15 border-primary/30" : "",
+                ].join(" ")}
               >
                 <CardContent className="p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-semibold text-foreground">
+                  {/* Header */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-2xl sm:text-3xl font-semibold leading-tight text-foreground truncate">
                           {loc.name}
                         </h3>
 
@@ -177,15 +172,23 @@ export default function Locations() {
                             Matriz
                           </Badge>
                         )}
+
+                        <Badge
+                          variant="secondary"
+                          className="rounded-full bg-muted text-muted-foreground"
+                        >
+                          Sucursal #{loc.id}
+                        </Badge>
                       </div>
 
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        Sucursal #{loc.id}
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Delivery y atención en sucursal
                       </p>
                     </div>
 
-                    <div className="rounded-xl bg-primary/10 px-3 py-2">
-                      <span className="text-sm font-semibold text-primary">
+                    {/* Hours chip */}
+                    <div className="shrink-0 rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5">
+                      <span className="text-xs font-semibold text-primary">
                         {loc.hours}
                       </span>
                     </div>
@@ -193,48 +196,62 @@ export default function Locations() {
 
                   <Separator className="my-5 bg-accent/40" />
 
+                  {/* Body blocks */}
                   <div className="space-y-4">
                     {/* Address */}
-                    <div className="flex items-start gap-3">
-                      <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                      <div>
-                        <p className="text-sm font-medium text-foreground">
-                          Dirección
-                        </p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {loc.address}
-                        </p>
+                    <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="mt-0.5 rounded-lg bg-primary/10 p-2">
+                          <MapPin className="h-4 w-4 text-primary" />
+                        </div>
 
-                        <a
-                          href={maps}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-primary hover:opacity-90"
-                        >
-                          <Navigation className="h-4 w-4 -rotate-45" />
-                          Abrir en Maps
-                        </a>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-foreground">
+                            Dirección
+                          </p>
+                          <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                            {loc.address}
+                          </p>
+
+                          <a
+                            href={maps}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary hover:opacity-90"
+                          >
+                            <Navigation className="h-4 w-4 -rotate-45" />
+                            Abrir en Maps
+                          </a>
+                        </div>
                       </div>
                     </div>
 
                     {/* Phones */}
-                    <div className="flex items-start gap-3">
-                      <Phone className="h-4 w-4 text-primary mt-0.5" />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-foreground">
-                          Teléfonos (delivery)
-                        </p>
+                    <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="mt-0.5 rounded-lg bg-primary/10 p-2">
+                          <Phone className="h-4 w-4 text-primary" />
+                        </div>
 
-                        <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {loc.phones.map((p) => (
-                            <a
-                              key={p}
-                              href={telHref(p)}
-                              className="text-sm text-foreground hover:text-primary transition-colors"
-                            >
-                              {p}
-                            </a>
-                          ))}
+                        <div className="flex-1">
+                          <p className="text-sm font-semibold text-foreground">
+                            Teléfonos (delivery)
+                          </p>
+
+                          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {loc.phones.map((p) => (
+                              <a
+                                key={p}
+                                href={telHref(p)}
+                                className="inline-flex items-center justify-between rounded-lg border border-border/60 bg-background px-3 py-2 text-sm text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors"
+                              >
+                                <span className="font-medium">{p}</span>
+                                <span className="text-xs text-muted-foreground">
+                                  Llamar
+                                </span>
+                              </a>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -242,7 +259,7 @@ export default function Locations() {
                 </CardContent>
 
                 <CardFooter className="p-6 pt-0">
-                  <div className="w-full flex flex-col gap-3">
+                  <div className="w-full flex flex-col sm:flex-row gap-3">
                     <Button asChild className="rounded-full w-full">
                       <a href={telHref(loc.phones[0])}>
                         <Phone className="mr-2 size-4" />
@@ -255,13 +272,16 @@ export default function Locations() {
                       variant="outline"
                       className="rounded-full w-full"
                     >
-                      <a href={wa} target="_blank" rel="noreferrer">
-                        <MessageCircle className="mr-2 size-4" />
-                        WhatsApp
+                      <a href={maps} target="_blank" rel="noreferrer">
+                        <Navigation className="mr-2 h-4 w-4 -rotate-45" />
+                        Maps
                       </a>
                     </Button>
                   </div>
                 </CardFooter>
+
+                {/* Accent strip (sutil) */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/40 via-accent/50 to-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
               </Card>
             );
           })}
@@ -287,17 +307,6 @@ export default function Locations() {
                   >
                     <Navigation className="mr-2 h-4 w-4 -rotate-45" />
                     Buscar en Maps
-                  </a>
-                </Button>
-
-                <Button asChild variant="outline" className="rounded-full">
-                  <a
-                    href={waHref("Sucursal más cercana")}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    Pedir ayuda por WhatsApp
                   </a>
                 </Button>
               </div>
