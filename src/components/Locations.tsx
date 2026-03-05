@@ -3,14 +3,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  MapPin,
-  Phone,
-  Clock,
-  Navigation,
-  MessageCircle,
-  Star,
-} from "lucide-react";
+import { MapPin, Phone, Clock, Navigation, Truck, Star } from "lucide-react";
 
 type Location = {
   id: number;
@@ -26,27 +19,30 @@ const locations: Location[] = [
   {
     id: 1,
     name: "Matriz Tortas Goyo 1",
-    address: "Smza 70 Mza 7 Lote 19 Av. Francisco y Madero",
+    address: "Av. Francisco I. Madero Supermanzana 70",
     phones: ["998 888 42 97", "998 888 46 69", "998 252 68 54"],
     hours: "9:00 AM – 11:00 PM",
     isMain: true,
-    mapsQuery: "Smza 70 Mza 7 Lote 19 Av. Francisco y Madero",
+    mapsQuery:
+      "Tortas Goyo Av. Francisco I. Madero Supermanzana 70, 77535 Cancún, Q.R.",
   },
   {
     id: 2,
     name: "Tortas Goyo 2",
-    address: "Región 101 Mza 96 Lote 17 Avenida 137",
+    address: "Calle Av. 137 Supermanzana 101 Manzana 96 Lote 17",
     phones: ["998 840 04 50", "998 208 70 15"],
     hours: "9:00 AM – 11:00 PM",
-    mapsQuery: "Region 101 Mza 96 Lote 17 Avenida 137",
+    mapsQuery:
+      "Tortas Goyo Calle Av. 137 Supermanzana 101 Manzana 96 Lote 17, 77519 Cancún, Q.R.",
   },
   {
     id: 3,
     name: "Tortas Goyo 3",
-    address: "Reg 510 Mza 57 Lote 18 Avenida 50",
+    address: "Av. 50 Supermanzana 510 MZA 57 LTE 18, Cecilio Chi",
     phones: ["998 415 39 62", "998 252 10 59"],
     hours: "9:00 AM – 11:00 PM",
-    mapsQuery: "Reg 510 Mza 57 Lote 18 Avenida 50",
+    mapsQuery:
+      "Tortas Goyo Av. 50 Supermanzana 510 MZA 57 LTE 18, Cecilio Chi, Benito Juárez, 77534 Cancún, Q.R.",
   },
   {
     id: 4,
@@ -55,16 +51,15 @@ const locations: Location[] = [
       "Av. 30 Nte. esq. Calle 86, Col. Luis Donaldo Colosio, Playa del Carmen",
     phones: ["984 859 48 59", "984 859 48 60"],
     hours: "11:00 AM – 12:00 AM",
-    mapsQuery:
-      "Av. 30 Nte esquina Calle 86, Luis Donaldo Colosio, Playa del Carmen",
+    mapsQuery: "Tortas Goyo Luis Donaldo Colosio, 77728 Playa del Carmen, Q.R.",
   },
   {
     id: 5,
     name: "Tortas Goyo 5",
-    address: "Región 76 Mza 44 Lote 31 No. 232 Avenida Revolución x Ruta 7",
+    address: "Region 76 Mza 44 Lote 31 Avenida Revolucion Ruta 7",
     phones: ["998 880 42 79", "998 843 12 83"],
     hours: "9:00 AM – 11:00 PM",
-    mapsQuery: "Region 76 Mza 44 Lote 31 Avenida Revolucion Ruta 7",
+    mapsQuery: "Tortas Goyo Tortas Goyo C. 54 185, 77527 Cancún, Q.R.",
   },
 ];
 
@@ -85,7 +80,6 @@ export default function Locations() {
   return (
     <section id="locations" className="py-20 bg-muted/30 min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl sm:text-7xl lg:text-7xl tracking-wide">
             Nuestras <span className="text-primary">Sucursales</span>
@@ -95,13 +89,11 @@ export default function Locations() {
             Elige la sucursal más cercana y contáctanos para hacer tu pedido.
           </p>
         </div>
-
-        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           <Card className="rounded-2xl">
             <CardContent className="p-6 flex items-start gap-4">
-              <div className="rounded-xl bg-primary/10 p-3">
-                <MapPin className="h-5 w-5 text-primary" />
+              <div className="rounded-xl bg-accent/10 p-3">
+                <MapPin className="h-5 w-5 text-accent" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">
@@ -111,11 +103,10 @@ export default function Locations() {
               </div>
             </CardContent>
           </Card>
-
           <Card className="rounded-2xl">
             <CardContent className="p-6 flex items-start gap-4">
-              <div className="rounded-xl bg-primary/10 p-3">
-                <Clock className="h-5 w-5 text-primary" />
+              <div className="rounded-xl bg-accent/10 p-3">
+                <Clock className="h-5 w-5 text-accent" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">
@@ -130,20 +121,18 @@ export default function Locations() {
 
           <Card className="rounded-2xl">
             <CardContent className="p-6 flex items-start gap-4">
-              <div className="rounded-xl bg-primary/10 p-3">
-                <MessageCircle className="h-5 w-5 text-primary" />
+              <div className="rounded-xl bg-accent/10 p-3">
+                <Truck className="size-5 text-accent" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">
-                  Pedidos por WhatsApp
+                  Delivery y atención en sucursal
                 </p>
                 <p className="text-2xl font-bold text-foreground">Disponible</p>
               </div>
             </CardContent>
           </Card>
         </div>
-
-        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {locations.map((loc) => {
             const maps = mapsHref(loc.mapsQuery);
@@ -167,12 +156,11 @@ export default function Locations() {
                         </h3>
 
                         {loc.isMain && (
-                          <Badge className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
+                          <Badge className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
                             <Star className="mr-1 h-3 w-3" />
                             Matriz
                           </Badge>
                         )}
-
                         <Badge
                           variant="secondary"
                           className="rounded-full bg-muted text-muted-foreground"
@@ -187,8 +175,8 @@ export default function Locations() {
                     </div>
 
                     {/* Hours chip */}
-                    <div className="shrink-0 rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5">
-                      <span className="text-xs font-semibold text-primary">
+                    <div className="shrink-0 rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5">
+                      <span className="text-xs font-semibold text-yellow-600">
                         {loc.hours}
                       </span>
                     </div>
@@ -201,8 +189,8 @@ export default function Locations() {
                     {/* Address */}
                     <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
                       <div className="flex items-start gap-3">
-                        <div className="mt-0.5 rounded-lg bg-primary/10 p-2">
-                          <MapPin className="h-4 w-4 text-primary" />
+                        <div className="mt-0.5 rounded-lg bg-accent/10 p-2">
+                          <MapPin className="h-4 w-4 text-accent" />
                         </div>
 
                         <div className="min-w-0">
@@ -217,7 +205,7 @@ export default function Locations() {
                             href={maps}
                             target="_blank"
                             rel="noreferrer"
-                            className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary hover:opacity-90"
+                            className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
                           >
                             <Navigation className="h-4 w-4 -rotate-45" />
                             Abrir en Maps
@@ -229,8 +217,8 @@ export default function Locations() {
                     {/* Phones */}
                     <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
                       <div className="flex items-start gap-3">
-                        <div className="mt-0.5 rounded-lg bg-primary/10 p-2">
-                          <Phone className="h-4 w-4 text-primary" />
+                        <div className="mt-0.5 rounded-lg bg-accent/10 p-2">
+                          <Phone className="h-4 w-4 text-accent" />
                         </div>
 
                         <div className="flex-1">
@@ -243,7 +231,7 @@ export default function Locations() {
                               <a
                                 key={p}
                                 href={telHref(p)}
-                                className="inline-flex items-center justify-between rounded-lg border border-border/60 bg-background px-3 py-2 text-sm text-foreground hover:border-primary/30 hover:bg-primary/5 transition-colors"
+                                className="inline-flex items-center justify-between rounded-lg border border-border/60 bg-background px-3 py-2 text-sm text-foreground hover:border-accent/30 hover:bg-accent/5 transition-colors"
                               >
                                 <span className="font-medium">{p}</span>
                                 <span className="text-xs text-muted-foreground">
@@ -259,8 +247,11 @@ export default function Locations() {
                 </CardContent>
 
                 <CardFooter className="p-6 pt-0">
-                  <div className="w-full flex flex-col sm:flex-row gap-3">
-                    <Button asChild className="rounded-full w-full">
+                  <div className="w-full flex flex-col gap-3">
+                    <Button
+                      asChild
+                      className="rounded-full w-full hover:bg-blue-700"
+                    >
                       <a href={telHref(loc.phones[0])}>
                         <Phone className="mr-2 size-4" />
                         Llamar
@@ -299,7 +290,10 @@ export default function Locations() {
               </p>
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild className="rounded-full">
+                <Button
+                  asChild
+                  className="rounded-full bg-accent hover:bg-yellow-600"
+                >
                   <a
                     href={mapsHref("Tortas Goyo")}
                     target="_blank"
