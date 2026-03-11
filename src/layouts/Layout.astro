@@ -1,26 +1,204 @@
----
+﻿---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import frontsideGoyo from "@/assets/hero/frontside-goyo.png";
 
 type Props = {
   title?: string;
   description?: string;
   canonical?: string;
-  ogImage?: string; // ruta pública, ej: "/og/og-home.jpg"
+  ogImage?: string;
   noindex?: boolean;
 };
 
+const SITE_URL = "https://goyo-landing.vercel.app/";
+const SITE_NAME = "Tortas Goyo";
+const DEFAULT_TITLE = "Tortas Goyo | Tortas, hamburguesas y bebidas en Cancun";
+const DEFAULT_DESCRIPTION =
+  "Desde 1995: tortas, hamburguesas y bebidas con ingredientes frescos, porciones generosas, delivery y atencion en sucursal.";
+
+const RESTAURANT = {
+  name: SITE_NAME,
+  foundingDate: "1995",
+  slogan:
+    "Comida rapida con sabor autentico, ingredientes frescos y porciones generosas.",
+  priceRange: "$$",
+  servesCuisine: ["Mexicana", "Tortas", "Hamburguesas", "Bebidas"],
+  phones: ["+52 998 888 4297", "+52 998 888 4669", "+52 998 252 6854"],
+  mainAddress: {
+    streetAddress: "Av. Francisco I. Madero Supermanzana 70",
+    addressLocality: "Cancun",
+    addressRegion: "Quintana Roo",
+    postalCode: "77535",
+    addressCountry: "MX",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "23:00",
+    },
+  ],
+  branches: [
+    {
+      "@type": "Place",
+      name: "Matriz Tortas Goyo 1",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Francisco I. Madero Supermanzana 70",
+        addressLocality: "Cancun",
+        addressRegion: "Quintana Roo",
+        postalCode: "77535",
+        addressCountry: "MX",
+      },
+      telephone: ["+52 998 888 4297", "+52 998 888 4669", "+52 998 252 6854"],
+    },
+    {
+      "@type": "Place",
+      name: "Tortas Goyo 2",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Calle Av. 137 Supermanzana 101 Manzana 96 Lote 17",
+        addressLocality: "Cancun",
+        addressRegion: "Quintana Roo",
+        postalCode: "77519",
+        addressCountry: "MX",
+      },
+      telephone: ["+52 998 840 0450", "+52 998 208 7015"],
+    },
+    {
+      "@type": "Place",
+      name: "Tortas Goyo 3",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. 50 Supermanzana 510 MZA 57 LTE 18, Cecilio Chi",
+        addressLocality: "Cancun",
+        addressRegion: "Quintana Roo",
+        postalCode: "77534",
+        addressCountry: "MX",
+      },
+      telephone: ["+52 998 415 3962", "+52 998 252 1059"],
+    },
+    {
+      "@type": "Place",
+      name: "Tortas Goyo 4",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Av. 30 Nte. esq. Calle 86, Col. Luis Donaldo Colosio",
+        addressLocality: "Playa del Carmen",
+        addressRegion: "Quintana Roo",
+        postalCode: "77728",
+        addressCountry: "MX",
+      },
+      telephone: ["+52 984 859 4859", "+52 984 859 4860"],
+    },
+    {
+      "@type": "Place",
+      name: "Tortas Goyo 5",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Region 76 Mza 44 Lote 31 Avenida Revolucion Ruta 7",
+        addressLocality: "Cancun",
+        addressRegion: "Quintana Roo",
+        postalCode: "77527",
+        addressCountry: "MX",
+      },
+      telephone: ["+52 998 880 4279", "+52 998 843 1283"],
+    },
+  ],
+};
+
 const {
-  title = "Tortas Goyo - Sabor Auténtico",
-  description = "Tortas, hamburguesas y bebidas desde 1995. Ingredientes frescos, porciones generosas y pedidos por WhatsApp.",
-  canonical = Astro.url.href,
-  ogImage = "/og/og-default.jpg",
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  canonical,
   noindex = false,
 } = Astro.props;
 
-// recomendado: usar URL absoluta en OG/Twitter
-const ogImageAbs = new URL(ogImage, Astro.url).href;
-const canonicalAbs = new URL(canonical, Astro.url).href;
+function toProductionUrl(value?: string) {
+  if (!value) return new URL(Astro.url.pathname, SITE_URL).href;
+
+  try {
+    const parsed = new URL(value);
+    return new URL(
+      `${parsed.pathname}${parsed.search}${parsed.hash}`,
+      SITE_URL,
+    ).href;
+  } catch {
+    return new URL(value, SITE_URL).href;
+  }
+}
+
+const canonicalAbs = toProductionUrl(canonical ?? Astro.url.pathname);
+const ogImageAbs = toProductionUrl(frontsideGoyo.src);
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "@id": `${SITE_URL}#restaurant`,
+      name: RESTAURANT.name,
+      url: SITE_URL,
+      image: ogImageAbs,
+      description,
+      slogan: RESTAURANT.slogan,
+      foundingDate: RESTAURANT.foundingDate,
+      priceRange: RESTAURANT.priceRange,
+      servesCuisine: RESTAURANT.servesCuisine,
+      telephone: RESTAURANT.phones[0],
+      contactPoint: RESTAURANT.phones.map((phone) => ({
+        "@type": "ContactPoint",
+        telephone: phone,
+        contactType: "customer service",
+        areaServed: "MX",
+        availableLanguage: ["es"],
+      })),
+      address: {
+        "@type": "PostalAddress",
+        ...RESTAURANT.mainAddress,
+      },
+      openingHoursSpecification: RESTAURANT.openingHoursSpecification,
+      areaServed: [
+        { "@type": "City", name: "Cancun" },
+        { "@type": "City", name: "Playa del Carmen" },
+      ],
+      department: RESTAURANT.branches,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      inLanguage: "es-MX",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalAbs}#webpage`,
+      url: canonicalAbs,
+      name: title,
+      isPartOf: { "@id": `${SITE_URL}#website` },
+      about: { "@id": `${SITE_URL}#restaurant` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImageAbs,
+        width: frontsideGoyo.width,
+        height: frontsideGoyo.height,
+      },
+      description,
+      inLanguage: "es-MX",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,6 +209,12 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={SITE_NAME} />
+    <meta
+      name="keywords"
+      content="tortas en Cancun, hamburguesas en Cancun, delivery Cancun, Tortas Goyo, menu de tortas, comida rapida Cancun"
+    />
+    <meta name="theme-color" content="#facc15" />
 
     <link rel="canonical" href={canonicalAbs} />
     <meta
@@ -38,44 +222,33 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
       content={noindex ? "noindex,nofollow" : "index,follow"}
     />
 
-    {/* Favicons (pon al menos /favicon.ico o /favicon.svg) */}
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    {/* Open Graph */}
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Tortas Goyo" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_MX" />
     <meta property="og:url" content={canonicalAbs} />
     <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:width" content={String(frontsideGoyo.width)} />
+    <meta property="og:image:height" content={String(frontsideGoyo.height)} />
+    <meta
+      property="og:image:alt"
+      content="Torta especial de Tortas Goyo servida en el restaurante"
+    />
 
-    {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
-
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        name: "Tortas Goyo",
-        url: canonicalAbs,
-        image: ogImageAbs,
-        servesCuisine: ["Mexicana", "Comida rápida"],
-        priceRange: "$$",
-        telephone: "+52 55 0000 0000",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Av. Principal 123",
-          addressLocality: "Cancún",
-          addressRegion: "Quintana Roo",
-          addressCountry: "MX",
-        },
-      })}
+    <meta
+      name="twitter:image:alt"
+      content="Torta especial de Tortas Goyo servida en el restaurante"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -102,3 +275,5 @@ const canonicalAbs = new URL(canonical, Astro.url).href;
     scroll-behavior: smooth;
   }
 </style>
+
+
