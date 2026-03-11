@@ -1,48 +1,76 @@
-# Astro Starter Kit: Basics
+﻿# Goyo Landing
 
-```sh
-npm create astro@latest -- --template basics
+Landing page para Tortas Goyo construida con Astro, React y Tailwind CSS v4. El sitio está orientado a mostrar la propuesta del restaurante, menú, sucursales y datos de contacto con una experiencia rápida y simple para móvil y escritorio.
+
+## Producción
+
+Sitio desplegado en [https://goyo-landing.vercel.app/](https://goyo-landing.vercel.app/).
+
+## Stack
+
+- Astro 6
+- React 19
+- Tailwind CSS 4
+- shadcn/ui + Radix UI
+- Lucide React
+- `@astrojs/sitemap`
+
+## Secciones del sitio
+
+- Inicio con hero, propuesta de valor y CTA de contacto
+- Menú destacado en home
+- Página de menú completo
+- Página de sucursales
+- Sección de contacto con teléfonos, horarios y mapa
+- SEO base desde `src/layouts/Layout.astro`
+
+## Scripts
+
+Ejecuta los comandos desde la raíz del proyecto.
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+  assets/        Imagenes del sitio
+  components/    Componentes React y UI
+  data/          Data del menú
+  layouts/       Layout base y SEO
+  pages/         Rutas Astro
+  styles/        Estilos globales
+public/          Archivos públicos
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Rutas principales
 
-## 🧞 Commands
+- `/` Inicio
+- `/menu` Menú completo
+- `/sucursales` Sucursales
 
-All commands are run from the root of the project, from a terminal:
+## Desarrollo
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+El proyecto usa Astro como shell principal y React para componentes interactivos. La configuración del sitio está en `astro.config.mjs`, con sitemap habilitado y `site` apuntando a producción.
 
-## 👀 Want to learn more?
+Si necesitas correr el proyecto localmente y `npm` falla en tu entorno, valida que tu instalación global de Node/NPM esté correcta o usa el binario local de Astro desde `node_modules/.bin`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Contenido relevante
+
+- El menú vive en `src/data/menu.ts`
+- La imagen principal del hero y OG está en `src/assets/hero/frontside-goyo.png`
+- El layout SEO central está en `src/layouts/Layout.astro`
+
+## Despliegue
+
+El sitio está pensado para desplegarse en Vercel. Antes de publicar cambios conviene revisar:
+
+- Metadatos SEO
+- Teléfonos, horarios y direcciones
+- Funcionamiento de rutas `/menu` y `/sucursales`
+- Generación correcta del sitemap
