@@ -178,7 +178,7 @@ export default function Footer() {
         <Separator className="my-10 h-px w-full bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-background/60">
           <p>
-            © {FOOTER.year} {FOOTER.brand}. Todos los derechos reservados.
+            © {FOOTER.year} {FOOTER.brand}.
           </p>
           <div className="flex items-center gap-3">
             <span className="text-background/50">Hecho con</span>
