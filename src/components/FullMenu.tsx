@@ -70,7 +70,7 @@ export default function FullMenu() {
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0
+    0,
   );
 
   const items = React.useMemo(() => {
@@ -95,7 +95,7 @@ export default function FullMenu() {
         return current.map((cartItem) =>
           cartItem.id === id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
+            : cartItem,
         );
       }
 
@@ -118,7 +118,7 @@ export default function FullMenu() {
       }
 
       return current.map((item) =>
-        item.id === id ? { ...item, quantity } : item
+        item.id === id ? { ...item, quantity } : item,
       );
     });
   };
@@ -132,7 +132,7 @@ export default function FullMenu() {
     const lines = cart.map((item) => {
       const itemTotal = item.price * item.quantity;
       return `- ${item.quantity} x ${item.name} (${formatCurrency(
-        item.price
+        item.price,
       )} c/u) = ${formatCurrency(itemTotal)}`;
     });
 
@@ -149,7 +149,7 @@ export default function FullMenu() {
   }, [cart, cartTotal, notes]);
 
   const whatsappHref = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(
-    whatsappMessage
+    whatsappMessage,
   )}`;
 
   return (
@@ -362,7 +362,7 @@ export default function FullMenu() {
           onValueChange={(v) => setActiveCategory(v as CategoryId)}
           className="w-full"
         >
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center gap-4 mb-28 sm:mb-14">
             <TabsList className="h-auto flex flex-wrap gap-2 bg-transparent p-0">
               {categories.map((cat) => {
                 const count = menuData[cat.id].length;
@@ -408,7 +408,7 @@ export default function FullMenu() {
                   const hero = categoryImages[activeCategory];
                   const itemId = getItemId(activeCategory, item);
                   const cartItem = cart.find(
-                    (current) => current.id === itemId
+                    (current) => current.id === itemId,
                   );
 
                   return (
