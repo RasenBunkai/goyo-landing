@@ -37,7 +37,7 @@ export type MenuItem = {
   price: number;
 };
 
-export const WA_PHONE = "525500000000";
+export const WA_PHONE = "529988884297";
 
 export const categories: Array<{
   id: CategoryId;
